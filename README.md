@@ -1,5 +1,7 @@
 # EarthTrend Bangladesh
 
+[Live demo](https://earthtrend-bangladesh-7xae.vercel.app/)
+
 An interactive climate-data exploration dashboard for Bangladesh. Explore trends, seasonal patterns, and environmental indicators across 15 locations in all 8 divisions, with maps, charts, data notes, and downloadable results.
 
 ## Features
