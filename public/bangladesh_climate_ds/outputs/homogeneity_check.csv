@@ -1,0 +1,6 @@
+variable,unit,last_year_before_break,first_year_after_break,mean_before,mean_after,ratio_after_over_before,difference,pettitt_K,p_pettitt,step_change_detected
+t2m,°C,2016,2017,25.45,25.309,0.99446,-0.14095,30,1,False
+tmax,°C,2016,2017,33.443,32.907,0.98398,-0.53582,90,0.1005,False
+tmin,°C,2013,2014,18.269,18.542,1.015,0.27349,80,0.18826,False
+dtr,°C,2014,2015,15.16,14.457,0.95364,-0.7028,122,0.0082093,True
+rain,mm,2014,2015,1842.7,3135.6,1.7016,1292.9,154,0.00031481,True

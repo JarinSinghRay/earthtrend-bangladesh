@@ -1,0 +1,2295 @@
+{
+  "meta": {
+    "project": "EarthTrend Detective - Data Science & Analysis (Bangladesh)",
+    "data_source": "NASA POWER Regional Monthly (MERRA-2 reanalysis): T2M, T2M_MAX, T2M_MIN (°C), PRECTOTCORR (mm/day)",
+    "period": "2001-2025 (monthly)",
+    "grid_resolution": "0.5° latitude x 0.625° longitude",
+    "grid_cells_in_download": 104,
+    "grid_cells_used_for_bangladesh": 54,
+    "baseline_for_anomalies": "2001-2025 mean of each calendar month",
+    "significance_level": 0.05,
+    "generated_utc": "2026-11-03 11:50",
+    "methods": [
+      "Mann-Kendall trend test (tie-corrected)",
+      "Sen's slope with 95% CI",
+      "OLS regression (slope, R², p-value)",
+      "Lag-1 autocorrelation check + TFPW pre-whitening (Yue et al., 2002)",
+      "Benjamini-Hochberg FDR correction across grid cells",
+      "Pettitt change-point test (step-change / homogeneity check)",
+      "Pearson & Spearman correlation (with lags, detrended)"
+    ]
+  },
+  "q1_what_is_changing": {
+    "national_annual": {
+      "t2m": {
+        "label": "Mean temperature (T2M)",
+        "mean": 25.39902,
+        "unit": "°C",
+        "sen_slope_per_decade": 0.03003,
+        "ci95_low_per_decade": -0.12634,
+        "ci95_high_per_decade": 0.18154,
+        "total_change_2001_2025": 0.07207,
+        "pct_change_per_decade": null,
+        "ols_slope_per_decade": 0.00733,
+        "r2": 0.00041,
+        "p_ols": 0.92345,
+        "kendall_tau": 0.04667,
+        "p_value": 0.76142,
+        "p_method": "Mann-Kendall",
+        "q_value_bh": 0.79725,
+        "lag1_autocorr": 0.05758,
+        "pettitt_p": 1.0,
+        "pettitt_break_year": 2017.0,
+        "trend_reliability": "n/a (no significant trend)"
+      },
+      "tmax": {
+        "label": "Maximum temperature (T2M_MAX)",
+        "mean": 33.25026,
+        "unit": "°C",
+        "sen_slope_per_decade": -0.14941,
+        "ci95_low_per_decade": -0.37986,
+        "ci95_high_per_decade": 0.17717,
+        "total_change_2001_2025": -0.35859,
+        "pct_change_per_decade": null,
+        "ols_slope_per_decade": -0.17305,
+        "r2": 0.06727,
+        "p_ols": 0.21057,
+        "kendall_tau": -0.15333,
+        "p_value": 0.29327,
+        "p_method": "Mann-Kendall",
+        "q_value_bh": 0.43128,
+        "lag1_autocorr": 0.1267,
+        "pettitt_p": 0.1005,
+        "pettitt_break_year": 2017.0,
+        "trend_reliability": "n/a (no significant trend)"
+      },
+      "tmin": {
+        "label": "Minimum temperature (T2M_MIN)",
+        "mean": 18.39997,
+        "unit": "°C",
+        "sen_slope_per_decade": 0.13925,
+        "ci95_low_per_decade": -0.04781,
+        "ci95_high_per_decade": 0.29782,
+        "total_change_2001_2025": 0.3342,
+        "pct_change_per_decade": null,
+        "ols_slope_per_decade": 0.14854,
+        "r2": 0.11365,
+        "p_ols": 0.09936,
+        "kendall_tau": 0.24667,
+        "p_value": 0.08821,
+        "p_method": "Mann-Kendall",
+        "q_value_bh": 0.22053,
+        "lag1_autocorr": 0.2446,
+        "pettitt_p": 0.18826,
+        "pettitt_break_year": 2014.0,
+        "trend_reliability": "n/a (no significant trend)"
+      },
+      "dtr": {
+        "label": "Diurnal temperature range (DTR)",
+        "mean": 14.85029,
+        "unit": "°C",
+        "sen_slope_per_decade": -0.31259,
+        "ci95_low_per_decade": -0.62957,
+        "ci95_high_per_decade": -0.03998,
+        "total_change_2001_2025": -0.75022,
+        "pct_change_per_decade": null,
+        "ols_slope_per_decade": -0.32159,
+        "r2": 0.19192,
+        "p_ols": 0.0285,
+        "kendall_tau": -0.31333,
+        "p_value": 0.02985,
+        "p_method": "Mann-Kendall",
+        "q_value_bh": 0.12439,
+        "lag1_autocorr": 0.1854,
+        "pettitt_p": 0.00821,
+        "pettitt_break_year": 2015.0,
+        "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+      },
+      "rain": {
+        "label": "Rainfall",
+        "mean": 2411.58594,
+        "unit": "mm",
+        "sen_slope_per_decade": 628.4663,
+        "ci95_low_per_decade": 384.06313,
+        "ci95_high_per_decade": 942.534,
+        "total_change_2001_2025": 1508.31912,
+        "pct_change_per_decade": 26.06029,
+        "ols_slope_per_decade": 749.90683,
+        "r2": 0.49824,
+        "p_ols": 8e-05,
+        "kendall_tau": 0.54,
+        "p_value": 0.0001,
+        "p_method": "MK + TFPW pre-whitening",
+        "q_value_bh": 0.00176,
+        "lag1_autocorr": 0.45486,
+        "pettitt_p": 0.00031,
+        "pettitt_break_year": 2015.0,
+        "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+      }
+    },
+    "national_seasonal": {
+      "Winter": {
+        "t2m": {
+          "label": "Mean temperature (T2M)",
+          "mean": 19.13414,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.04556,
+          "ci95_low_per_decade": -0.4838,
+          "ci95_high_per_decade": 0.4044,
+          "total_change_2001_2025": -0.10479,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.04438,
+          "r2": 0.00197,
+          "p_ols": 0.83672,
+          "kendall_tau": -0.05797,
+          "p_value": 0.70984,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.79725,
+          "lag1_autocorr": -0.09157,
+          "pettitt_p": 1.0,
+          "pettitt_break_year": 2018.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmax": {
+          "label": "Maximum temperature (T2M_MAX)",
+          "mean": 29.07159,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.2851,
+          "ci95_low_per_decade": -0.84873,
+          "ci95_high_per_decade": 0.31186,
+          "total_change_2001_2025": -0.65572,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.37843,
+          "r2": 0.08928,
+          "p_ols": 0.15609,
+          "kendall_tau": -0.15942,
+          "p_value": 0.28616,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.43128,
+          "lag1_autocorr": -0.22675,
+          "pettitt_p": 0.23065,
+          "pettitt_break_year": 2018.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmin": {
+          "label": "Minimum temperature (T2M_MIN)",
+          "mean": 9.5611,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.07753,
+          "ci95_low_per_decade": -0.58358,
+          "ci95_high_per_decade": 0.52453,
+          "total_change_2001_2025": -0.17832,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.08492,
+          "r2": 0.00475,
+          "p_ols": 0.74895,
+          "kendall_tau": -0.04348,
+          "p_value": 0.78497,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.79725,
+          "lag1_autocorr": 0.11246,
+          "pettitt_p": 1.0,
+          "pettitt_break_year": 2012.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "dtr": {
+          "label": "Diurnal temperature range (DTR)",
+          "mean": 19.51049,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.30546,
+          "ci95_low_per_decade": -0.96242,
+          "ci95_high_per_decade": 0.40873,
+          "total_change_2001_2025": -0.70256,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.29351,
+          "r2": 0.03661,
+          "p_ols": 0.37042,
+          "kendall_tau": -0.14493,
+          "p_value": 0.33336,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.463,
+          "lag1_autocorr": 0.16792,
+          "pettitt_p": 0.64822,
+          "pettitt_break_year": 2018.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "rain": {
+          "label": "Rainfall",
+          "mean": 45.32365,
+          "unit": "mm",
+          "sen_slope_per_decade": 13.38907,
+          "ci95_low_per_decade": -6.69122,
+          "ci95_high_per_decade": 46.2309,
+          "total_change_2001_2025": 30.79487,
+          "pct_change_per_decade": 29.54103,
+          "ols_slope_per_decade": 22.51607,
+          "r2": 0.15839,
+          "p_ols": 0.0541,
+          "kendall_tau": 0.13043,
+          "p_value": 0.38531,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.48164,
+          "lag1_autocorr": -0.38416,
+          "pettitt_p": 1.0,
+          "pettitt_break_year": 2007.0,
+          "trend_reliability": "n/a (no significant trend)"
+        }
+      },
+      "Pre-monsoon": {
+        "t2m": {
+          "label": "Mean temperature (T2M)",
+          "mean": 28.54071,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.22366,
+          "ci95_low_per_decade": -0.51253,
+          "ci95_high_per_decade": 0.09998,
+          "total_change_2001_2025": -0.53679,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.31235,
+          "r2": 0.12536,
+          "p_ols": 0.08249,
+          "kendall_tau": -0.22667,
+          "p_value": 0.11763,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.22622,
+          "lag1_autocorr": -0.04609,
+          "pettitt_p": 0.07658,
+          "pettitt_break_year": 2017.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmax": {
+          "label": "Maximum temperature (T2M_MAX)",
+          "mean": 38.42898,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.18679,
+          "ci95_low_per_decade": -0.95256,
+          "ci95_high_per_decade": 0.33444,
+          "total_change_2001_2025": -0.44829,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.42559,
+          "r2": 0.05343,
+          "p_ols": 0.26624,
+          "kendall_tau": -0.13333,
+          "p_value": 0.36238,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.47681,
+          "lag1_autocorr": 0.20627,
+          "pettitt_p": 0.11462,
+          "pettitt_break_year": 2015.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmin": {
+          "label": "Minimum temperature (T2M_MIN)",
+          "mean": 19.86019,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.17153,
+          "ci95_low_per_decade": -0.14622,
+          "ci95_high_per_decade": 0.54225,
+          "total_change_2001_2025": 0.41168,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.16078,
+          "r2": 0.0325,
+          "p_ols": 0.38851,
+          "kendall_tau": 0.16,
+          "p_value": 0.27234,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.43128,
+          "lag1_autocorr": -0.1171,
+          "pettitt_p": 0.52936,
+          "pettitt_break_year": 2006.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "dtr": {
+          "label": "Diurnal temperature range (DTR)",
+          "mean": 18.56878,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.5963,
+          "ci95_low_per_decade": -1.48288,
+          "ci95_high_per_decade": 0.00729,
+          "total_change_2001_2025": -1.43112,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.58636,
+          "r2": 0.10876,
+          "p_ols": 0.10741,
+          "kendall_tau": -0.28,
+          "p_value": 0.05257,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.14602,
+          "lag1_autocorr": 0.23767,
+          "pettitt_p": 0.06656,
+          "pettitt_break_year": 2015.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "rain": {
+          "label": "Rainfall",
+          "mean": 469.53801,
+          "unit": "mm",
+          "sen_slope_per_decade": 130.78905,
+          "ci95_low_per_decade": 72.79561,
+          "ci95_high_per_decade": 216.32889,
+          "total_change_2001_2025": 313.89373,
+          "pct_change_per_decade": 27.85484,
+          "ols_slope_per_decade": 167.14099,
+          "r2": 0.39347,
+          "p_ols": 0.00079,
+          "kendall_tau": 0.48667,
+          "p_value": 0.00071,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.0059,
+          "lag1_autocorr": 0.2703,
+          "pettitt_p": 0.00144,
+          "pettitt_break_year": 2015.0,
+          "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+        }
+      },
+      "Monsoon": {
+        "t2m": {
+          "label": "Mean temperature (T2M)",
+          "mean": 28.34483,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.14352,
+          "ci95_low_per_decade": 0.01948,
+          "ci95_high_per_decade": 0.27529,
+          "total_change_2001_2025": 0.34445,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.13284,
+          "r2": 0.14367,
+          "p_ols": 0.06168,
+          "kendall_tau": 0.29333,
+          "p_value": 0.04217,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.14602,
+          "lag1_autocorr": -0.26328,
+          "pettitt_p": 0.13033,
+          "pettitt_break_year": 2012.0,
+          "trend_reliability": "Gradual trend (no step change detected)"
+        },
+        "tmax": {
+          "label": "Maximum temperature (T2M_MAX)",
+          "mean": 33.68695,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.02665,
+          "ci95_low_per_decade": -0.41399,
+          "ci95_high_per_decade": 0.3142,
+          "total_change_2001_2025": -0.06395,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.03018,
+          "r2": 0.00156,
+          "p_ols": 0.85138,
+          "kendall_tau": -0.04,
+          "p_value": 0.79725,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.79725,
+          "lag1_autocorr": -0.18807,
+          "pettitt_p": 1.0,
+          "pettitt_break_year": 2003.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmin": {
+          "label": "Minimum temperature (T2M_MIN)",
+          "mean": 24.80421,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.18289,
+          "ci95_low_per_decade": 0.02945,
+          "ci95_high_per_decade": 0.30847,
+          "total_change_2001_2025": 0.43894,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.16715,
+          "r2": 0.23673,
+          "p_ols": 0.01365,
+          "kendall_tau": 0.32,
+          "p_value": 0.02651,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.12439,
+          "lag1_autocorr": -0.10445,
+          "pettitt_p": 0.05767,
+          "pettitt_break_year": 2012.0,
+          "trend_reliability": "Gradual trend (no step change detected)"
+        },
+        "dtr": {
+          "label": "Diurnal temperature range (DTR)",
+          "mean": 8.88274,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.17889,
+          "ci95_low_per_decade": -0.59029,
+          "ci95_high_per_decade": 0.13271,
+          "total_change_2001_2025": -0.42935,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.19733,
+          "r2": 0.06799,
+          "p_ols": 0.20806,
+          "kendall_tau": -0.16667,
+          "p_value": 0.25246,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.43128,
+          "lag1_autocorr": -0.09401,
+          "pettitt_p": 0.40043,
+          "pettitt_break_year": 2013.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "rain": {
+          "label": "Rainfall",
+          "mean": 1657.1871,
+          "unit": "mm",
+          "sen_slope_per_decade": 419.89059,
+          "ci95_low_per_decade": 276.43169,
+          "ci95_high_per_decade": 634.73208,
+          "total_change_2001_2025": 1007.73742,
+          "pct_change_per_decade": 25.33755,
+          "ols_slope_per_decade": 481.58003,
+          "r2": 0.46868,
+          "p_ols": 0.00016,
+          "kendall_tau": 0.54667,
+          "p_value": 0.00014,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.00176,
+          "lag1_autocorr": 0.2966,
+          "pettitt_p": 0.00076,
+          "pettitt_break_year": 2015.0,
+          "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+        }
+      },
+      "Post-monsoon": {
+        "t2m": {
+          "label": "Mean temperature (T2M)",
+          "mean": 24.22296,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.31658,
+          "ci95_low_per_decade": 0.06646,
+          "ci95_high_per_decade": 0.56669,
+          "total_change_2001_2025": 0.75978,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.3268,
+          "r2": 0.20382,
+          "p_ols": 0.02349,
+          "kendall_tau": 0.32667,
+          "p_value": 0.02349,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.12439,
+          "lag1_autocorr": 0.05581,
+          "pettitt_p": 0.03157,
+          "pettitt_break_year": 2014.0,
+          "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+        },
+        "tmax": {
+          "label": "Maximum temperature (T2M_MAX)",
+          "mean": 30.90115,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.18767,
+          "ci95_low_per_decade": -0.09463,
+          "ci95_high_per_decade": 0.47066,
+          "total_change_2001_2025": 0.45042,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.23439,
+          "r2": 0.1401,
+          "p_ols": 0.06528,
+          "kendall_tau": 0.22667,
+          "p_value": 0.11763,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.22622,
+          "lag1_autocorr": -0.00795,
+          "pettitt_p": 0.21156,
+          "pettitt_break_year": 2006.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "tmin": {
+          "label": "Minimum temperature (T2M_MIN)",
+          "mean": 16.69065,
+          "unit": "°C",
+          "sen_slope_per_decade": 0.41187,
+          "ci95_low_per_decade": -0.06202,
+          "ci95_high_per_decade": 0.83024,
+          "total_change_2001_2025": 0.98848,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": 0.42433,
+          "r2": 0.09561,
+          "p_ols": 0.13257,
+          "kendall_tau": 0.24,
+          "p_value": 0.09728,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.22108,
+          "lag1_autocorr": -0.06387,
+          "pettitt_p": 0.1005,
+          "pettitt_break_year": 2015.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "dtr": {
+          "label": "Diurnal temperature range (DTR)",
+          "mean": 14.2105,
+          "unit": "°C",
+          "sen_slope_per_decade": -0.24268,
+          "ci95_low_per_decade": -0.79812,
+          "ci95_high_per_decade": 0.48196,
+          "total_change_2001_2025": -0.58242,
+          "pct_change_per_decade": null,
+          "ols_slope_per_decade": -0.18994,
+          "r2": 0.01594,
+          "p_ols": 0.54762,
+          "kendall_tau": -0.09333,
+          "p_value": 0.52831,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.62894,
+          "lag1_autocorr": -0.12631,
+          "pettitt_p": 0.85423,
+          "pettitt_break_year": 2006.0,
+          "trend_reliability": "n/a (no significant trend)"
+        },
+        "rain": {
+          "label": "Rainfall",
+          "mean": 240.33524,
+          "unit": "mm",
+          "sen_slope_per_decade": 72.12869,
+          "ci95_low_per_decade": 5.49678,
+          "ci95_high_per_decade": 146.13813,
+          "total_change_2001_2025": 173.10886,
+          "pct_change_per_decade": 30.0117,
+          "ols_slope_per_decade": 81.83305,
+          "r2": 0.23479,
+          "p_ols": 0.0141,
+          "kendall_tau": 0.28667,
+          "p_value": 0.04713,
+          "p_method": "Mann-Kendall",
+          "q_value_bh": 0.14602,
+          "lag1_autocorr": 0.01182,
+          "pettitt_p": 0.00685,
+          "pettitt_break_year": 2016.0,
+          "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+        }
+      }
+    },
+    "plain_english": {
+      "t2m": "Mean temperature shows no statistically significant trend: Sen's slope +0.03 °C/decade (95% CI -0.13 to +0.18; p = 0.761).",
+      "tmax": "Maximum temperature shows no statistically significant trend: Sen's slope -0.15 °C/decade (95% CI -0.38 to +0.18; p = 0.293).",
+      "tmin": "Minimum temperature shows only a weak, non-significant tendency to rise: Sen's slope +0.14 °C/decade (95% CI -0.05 to +0.30; p = 0.088).",
+      "dtr": "Diurnal temperature range (DTR) decreased: Sen's slope -0.31 °C/decade (95% CI -0.63 to -0.04; p = 0.030) - significant before, but not after, FDR correction across the national tests; a step change around 2015 was detected (Pettitt p = 0.008), so this is not a smooth trend.",
+      "rain": "Rainfall increased: Sen's slope +628 mm per year/decade (95% CI +384 to +943; p < 0.001); a step change around 2015 was detected (Pettitt p < 0.001), so this is not a smooth trend."
+    },
+    "decadal_comparison_t2m_annual": [
+      {
+        "baseline_span": "2001-2010",
+        "comparison_span": "2011-2020",
+        "baseline_mean": 25.41063,
+        "comparison_mean": 25.36645,
+        "difference": -0.04419,
+        "p_mannwhitney": 0.73373
+      },
+      {
+        "baseline_span": "2001-2010",
+        "comparison_span": "2021-2025",
+        "baseline_mean": 25.41063,
+        "comparison_mean": 25.44095,
+        "difference": 0.03032,
+        "p_mannwhitney": 0.85914
+      },
+      {
+        "baseline_span": "2011-2020",
+        "comparison_span": "2021-2025",
+        "baseline_mean": 25.36645,
+        "comparison_mean": 25.44095,
+        "difference": 0.07451,
+        "p_mannwhitney": 0.59407
+      }
+    ],
+    "decadal_comparison_rain_annual": [
+      {
+        "baseline_span": "2001-2010",
+        "comparison_span": "2011-2020",
+        "baseline_mean": 1833.10748,
+        "comparison_mean": 2790.95792,
+        "difference": 957.85044,
+        "pct_difference": 52.25282,
+        "p_mannwhitney": 0.00911
+      },
+      {
+        "baseline_span": "2001-2010",
+        "comparison_span": "2021-2025",
+        "baseline_mean": 1833.10748,
+        "comparison_mean": 2809.79891,
+        "difference": 976.69144,
+        "pct_difference": 53.28064,
+        "p_mannwhitney": 0.00067
+      },
+      {
+        "baseline_span": "2011-2020",
+        "comparison_span": "2021-2025",
+        "baseline_mean": 2790.95792,
+        "comparison_mean": 2809.79891,
+        "difference": 18.841,
+        "pct_difference": 0.67507,
+        "p_mannwhitney": 0.95305
+      }
+    ]
+  },
+  "q2_where_is_it_changing": {
+    "spatial_summary_annual": {
+      "t2m": {
+        "label": "Mean temperature (T2M)",
+        "n_cells": 54,
+        "n_cells_positive_slope": 34,
+        "n_significant_raw_p05": 2,
+        "n_significant_fdr_q05": 0,
+        "median_sen_slope_per_decade": 0.03089,
+        "fastest_increasing_cell": {
+          "lat": 22.5,
+          "lon": 91.25,
+          "region": "Chattogram",
+          "sen_slope_per_decade": 0.18607,
+          "q_value": 0.0683
+        },
+        "fastest_decreasing_cell": {
+          "lat": 23.5,
+          "lon": 89.375,
+          "region": "Khulna",
+          "sen_slope_per_decade": -0.1244,
+          "q_value": 0.95096
+        }
+      },
+      "tmax": {
+        "label": "Maximum temperature (T2M_MAX)",
+        "n_cells": 54,
+        "n_cells_positive_slope": 5,
+        "n_significant_raw_p05": 3,
+        "n_significant_fdr_q05": 0,
+        "median_sen_slope_per_decade": -0.11789,
+        "fastest_increasing_cell": {
+          "lat": 24.5,
+          "lon": 88.125,
+          "region": "Rajshahi",
+          "sen_slope_per_decade": 0.17298,
+          "q_value": 0.69887
+        },
+        "fastest_decreasing_cell": {
+          "lat": 22.5,
+          "lon": 92.5,
+          "region": "Chattogram",
+          "sen_slope_per_decade": -0.48502,
+          "q_value": 0.52529
+        }
+      },
+      "tmin": {
+        "label": "Minimum temperature (T2M_MIN)",
+        "n_cells": 54,
+        "n_cells_positive_slope": 50,
+        "n_significant_raw_p05": 18,
+        "n_significant_fdr_q05": 8,
+        "median_sen_slope_per_decade": 0.12817,
+        "fastest_increasing_cell": {
+          "lat": 24.5,
+          "lon": 91.875,
+          "region": "Sylhet",
+          "sen_slope_per_decade": 0.39417,
+          "q_value": 0.02476
+        },
+        "fastest_decreasing_cell": {
+          "lat": 22.5,
+          "lon": 92.5,
+          "region": "Chattogram",
+          "sen_slope_per_decade": -0.10143,
+          "q_value": 0.61145
+        }
+      },
+      "dtr": {
+        "label": "Diurnal temperature range (DTR)",
+        "n_cells": 54,
+        "n_cells_positive_slope": 1,
+        "n_significant_raw_p05": 21,
+        "n_significant_fdr_q05": 4,
+        "median_sen_slope_per_decade": -0.30879,
+        "fastest_increasing_cell": {
+          "lat": 21.5,
+          "lon": 91.875,
+          "region": "Chattogram",
+          "sen_slope_per_decade": 0.04783,
+          "q_value": 0.60405
+        },
+        "fastest_decreasing_cell": {
+          "lat": 26.5,
+          "lon": 88.75,
+          "region": "Rangpur",
+          "sen_slope_per_decade": -0.78193,
+          "q_value": 0.01509
+        }
+      },
+      "rain": {
+        "label": "Rainfall",
+        "n_cells": 54,
+        "n_cells_positive_slope": 54,
+        "n_significant_raw_p05": 52,
+        "n_significant_fdr_q05": 52,
+        "median_sen_slope_per_decade": 496.74211,
+        "fastest_increasing_cell": {
+          "lat": 22.0,
+          "lon": 91.875,
+          "region": "Chattogram",
+          "sen_slope_per_decade": 2582.96597,
+          "q_value": 5e-05
+        },
+        "fastest_decreasing_cell": {
+          "lat": 24.0,
+          "lon": 88.125,
+          "region": "Rajshahi",
+          "sen_slope_per_decade": 82.31875,
+          "q_value": 0.19896
+        }
+      }
+    },
+    "spatial_summary_seasonal": {
+      "Winter": {
+        "t2m": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.01835
+        },
+        "tmax": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.34669
+        },
+        "tmin": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.08018
+        },
+        "dtr": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.26798
+        },
+        "rain": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 11.1925
+        }
+      },
+      "Pre-monsoon": {
+        "t2m": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.2442
+        },
+        "tmax": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.26491
+        },
+        "tmin": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.15234
+        },
+        "dtr": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.53278
+        },
+        "rain": {
+          "n_significant_fdr_q05": 51,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 124.58933
+        }
+      },
+      "Monsoon": {
+        "t2m": {
+          "n_significant_fdr_q05": 21,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.14273
+        },
+        "tmax": {
+          "n_significant_fdr_q05": 1,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.00902
+        },
+        "tmin": {
+          "n_significant_fdr_q05": 9,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.15905
+        },
+        "dtr": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.15495
+        },
+        "rain": {
+          "n_significant_fdr_q05": 52,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 308.4953
+        }
+      },
+      "Post-monsoon": {
+        "t2m": {
+          "n_significant_fdr_q05": 23,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.31892
+        },
+        "tmax": {
+          "n_significant_fdr_q05": 8,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.21339
+        },
+        "tmin": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 0.39917
+        },
+        "dtr": {
+          "n_significant_fdr_q05": 0,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": -0.17365
+        },
+        "rain": {
+          "n_significant_fdr_q05": 8,
+          "n_cells": 54,
+          "median_sen_slope_per_decade": 71.3119
+        }
+      }
+    },
+    "strongest_t2m_trend_cells": [
+      {
+        "cell_id": "C022.5_091.250",
+        "lat": 22.5,
+        "lon": 91.25,
+        "region": "Chattogram",
+        "sen_slope_per_decade": 0.18607,
+        "sen_ci_low_per_decade": 0.07583,
+        "sen_ci_high_per_decade": 0.31961,
+        "p_value_final": 0.00126,
+        "q_value_bh": 0.0683,
+        "trend_class": "Significant increase (raw p only)"
+      },
+      {
+        "cell_id": "C021.5_091.875",
+        "lat": 21.5,
+        "lon": 91.875,
+        "region": "Chattogram",
+        "sen_slope_per_decade": 0.16852,
+        "sen_ci_low_per_decade": 0.05417,
+        "sen_ci_high_per_decade": 0.30128,
+        "p_value_final": 0.00351,
+        "q_value_bh": 0.0947,
+        "trend_class": "Significant increase (raw p only)"
+      },
+      {
+        "cell_id": "C024.5_091.875",
+        "lat": 24.5,
+        "lon": 91.875,
+        "region": "Sylhet",
+        "sen_slope_per_decade": 0.14338,
+        "sen_ci_low_per_decade": -0.03,
+        "sen_ci_high_per_decade": 0.28578,
+        "p_value_final": 0.10199,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C025.5_090.000",
+        "lat": 25.5,
+        "lon": 90.0,
+        "region": "Rangpur",
+        "sen_slope_per_decade": 0.12061,
+        "sen_ci_low_per_decade": -0.07167,
+        "sen_ci_high_per_decade": 0.33437,
+        "p_value_final": 0.18311,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C023.0_091.875",
+        "lat": 23.0,
+        "lon": 91.875,
+        "region": "Chattogram",
+        "sen_slope_per_decade": 0.11759,
+        "sen_ci_low_per_decade": -0.03796,
+        "sen_ci_high_per_decade": 0.26875,
+        "p_value_final": 0.10707,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      }
+    ],
+    "weakest_t2m_trend_cells": [
+      {
+        "cell_id": "C026.0_088.750",
+        "lat": 26.0,
+        "lon": 88.75,
+        "region": "Rangpur",
+        "sen_slope_per_decade": -0.06458,
+        "sen_ci_low_per_decade": -0.26333,
+        "sen_ci_high_per_decade": 0.20893,
+        "p_value_final": 0.5593,
+        "q_value_bh": 0.95682,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C022.5_092.500",
+        "lat": 22.5,
+        "lon": 92.5,
+        "region": "Chattogram",
+        "sen_slope_per_decade": -0.11534,
+        "sen_ci_low_per_decade": -0.38167,
+        "sen_ci_high_per_decade": 0.12708,
+        "p_value_final": 0.40034,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C022.0_092.500",
+        "lat": 22.0,
+        "lon": 92.5,
+        "region": "Chattogram",
+        "sen_slope_per_decade": -0.12073,
+        "sen_ci_low_per_decade": -0.35139,
+        "sen_ci_high_per_decade": 0.08056,
+        "p_value_final": 0.28254,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C021.0_092.500",
+        "lat": 21.0,
+        "lon": 92.5,
+        "region": "Chattogram",
+        "sen_slope_per_decade": -0.12275,
+        "sen_ci_low_per_decade": -0.29792,
+        "sen_ci_high_per_decade": 0.02302,
+        "p_value_final": 0.14119,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      },
+      {
+        "cell_id": "C023.5_089.375",
+        "lat": 23.5,
+        "lon": 89.375,
+        "region": "Khulna",
+        "sen_slope_per_decade": -0.1244,
+        "sen_ci_low_per_decade": -0.275,
+        "sen_ci_high_per_decade": 0.075,
+        "p_value_final": 0.15426,
+        "q_value_bh": 0.95096,
+        "trend_class": "No significant trend"
+      }
+    ],
+    "regional_summary_annual": {
+      "Barishal": {
+        "n_cells": 5,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.0223,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.07102,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.11523,
+          "n_significant_fdr": 0
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.18274,
+          "n_significant_fdr": 0
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 1047.07777,
+          "n_significant_fdr": 5
+        }
+      },
+      "Chattogram": {
+        "n_cells": 11,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.02836,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.15908,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.08974,
+          "n_significant_fdr": 1
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.26422,
+          "n_significant_fdr": 1
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 1384.57034,
+          "n_significant_fdr": 11
+        }
+      },
+      "Dhaka": {
+        "n_cells": 7,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.02121,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.14757,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.12978,
+          "n_significant_fdr": 0
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.3178,
+          "n_significant_fdr": 0
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 432.61279,
+          "n_significant_fdr": 7
+        }
+      },
+      "Khulna": {
+        "n_cells": 7,
+        "t2m": {
+          "mean_sen_slope_per_decade": -0.00678,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.15257,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.07029,
+          "n_significant_fdr": 0
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.25782,
+          "n_significant_fdr": 0
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 486.93615,
+          "n_significant_fdr": 7
+        }
+      },
+      "Mymensingh": {
+        "n_cells": 4,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.05378,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.1031,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.16751,
+          "n_significant_fdr": 0
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.34112,
+          "n_significant_fdr": 0
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 570.4509,
+          "n_significant_fdr": 4
+        }
+      },
+      "Rajshahi": {
+        "n_cells": 7,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.01046,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.05148,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.07543,
+          "n_significant_fdr": 0
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.19844,
+          "n_significant_fdr": 0
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 232.19725,
+          "n_significant_fdr": 5
+        }
+      },
+      "Rangpur": {
+        "n_cells": 9,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.00574,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.16712,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.23642,
+          "n_significant_fdr": 5
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.44979,
+          "n_significant_fdr": 2
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 414.34435,
+          "n_significant_fdr": 9
+        }
+      },
+      "Sylhet": {
+        "n_cells": 4,
+        "t2m": {
+          "mean_sen_slope_per_decade": 0.0886,
+          "n_significant_fdr": 0
+        },
+        "tmax": {
+          "mean_sen_slope_per_decade": -0.11607,
+          "n_significant_fdr": 0
+        },
+        "tmin": {
+          "mean_sen_slope_per_decade": 0.31644,
+          "n_significant_fdr": 2
+        },
+        "dtr": {
+          "mean_sen_slope_per_decade": -0.45131,
+          "n_significant_fdr": 1
+        },
+        "rain": {
+          "mean_sen_slope_per_decade": 948.87479,
+          "n_significant_fdr": 4
+        }
+      }
+    },
+    "regional_ranking_t2m_warming": [
+      {
+        "region": "Sylhet",
+        "mean_sen_slope_per_decade": 0.0886
+      },
+      {
+        "region": "Mymensingh",
+        "mean_sen_slope_per_decade": 0.05378
+      },
+      {
+        "region": "Chattogram",
+        "mean_sen_slope_per_decade": 0.02836
+      },
+      {
+        "region": "Barishal",
+        "mean_sen_slope_per_decade": 0.0223
+      },
+      {
+        "region": "Dhaka",
+        "mean_sen_slope_per_decade": 0.02121
+      },
+      {
+        "region": "Rajshahi",
+        "mean_sen_slope_per_decade": 0.01046
+      },
+      {
+        "region": "Rangpur",
+        "mean_sen_slope_per_decade": 0.00574
+      },
+      {
+        "region": "Khulna",
+        "mean_sen_slope_per_decade": -0.00678
+      }
+    ],
+    "note": "Regions are the nearest administrative division to each grid-cell centre (approximate grouping for display)."
+  },
+  "q3_how_much_is_it_changing": {
+    "annual_sen_slope_table": {
+      "t2m": {
+        "sen_slope_per_decade": 0.03003,
+        "ci95": [
+          -0.12634,
+          0.18154
+        ],
+        "total_change_2001_2025": 0.07207,
+        "unit": "°C"
+      },
+      "tmax": {
+        "sen_slope_per_decade": -0.14941,
+        "ci95": [
+          -0.37986,
+          0.17717
+        ],
+        "total_change_2001_2025": -0.35859,
+        "unit": "°C"
+      },
+      "tmin": {
+        "sen_slope_per_decade": 0.13925,
+        "ci95": [
+          -0.04781,
+          0.29782
+        ],
+        "total_change_2001_2025": 0.3342,
+        "unit": "°C"
+      },
+      "dtr": {
+        "sen_slope_per_decade": -0.31259,
+        "ci95": [
+          -0.62957,
+          -0.03998
+        ],
+        "total_change_2001_2025": -0.75022,
+        "unit": "°C"
+      },
+      "rain": {
+        "sen_slope_per_decade": 628.4663,
+        "ci95": [
+          384.06313,
+          942.534
+        ],
+        "total_change_2001_2025": 1508.31912,
+        "unit": "mm/yr"
+      }
+    },
+    "calendar_month_t2m_sen_slope_per_decade": {
+      "January": {
+        "slope": 0.12523,
+        "p_value": 0.52831,
+        "q_value": 0.70442
+      },
+      "February": {
+        "slope": -0.26919,
+        "p_value": 0.41369,
+        "q_value": 0.62053
+      },
+      "March": {
+        "slope": -0.27314,
+        "p_value": 0.18311,
+        "q_value": 0.36622
+      },
+      "April": {
+        "slope": -0.11241,
+        "p_value": 0.62381,
+        "q_value": 0.7261
+      },
+      "May": {
+        "slope": -0.47502,
+        "p_value": 0.01615,
+        "q_value": 0.06459
+      },
+      "June": {
+        "slope": -0.07875,
+        "p_value": 0.7261,
+        "q_value": 0.7261
+      },
+      "July": {
+        "slope": 0.14724,
+        "p_value": 0.02985,
+        "q_value": 0.08956
+      },
+      "August": {
+        "slope": 0.06823,
+        "p_value": 0.29327,
+        "q_value": 0.50275
+      },
+      "September": {
+        "slope": 0.38124,
+        "p_value": 3e-05,
+        "q_value": 0.00035
+      },
+      "October": {
+        "slope": 0.38832,
+        "p_value": 0.00953,
+        "q_value": 0.05719
+      },
+      "November": {
+        "slope": 0.26443,
+        "p_value": 0.10707,
+        "q_value": 0.25697
+      },
+      "December": {
+        "slope": 0.05344,
+        "p_value": 0.69134,
+        "q_value": 0.7261
+      }
+    }
+  },
+  "q4_is_it_significant": {
+    "decision_rule": "Trend is called significant when p < 0.05 (Mann-Kendall; TFPW pre-whitening if lag-1 autocorrelation was significant). For many grid cells, Benjamini-Hochberg FDR (q < 0.05) is used so that false discoveries are controlled.",
+    "national_tests": {
+      "n_tests": 25,
+      "n_significant_raw_p05": 8,
+      "n_significant_fdr_q05": 3,
+      "significant_after_fdr": [
+        "rain/Annual",
+        "rain/Pre-monsoon",
+        "rain/Monsoon"
+      ],
+      "significant_raw_only": [
+        "dtr/Annual",
+        "t2m/Monsoon",
+        "tmin/Monsoon",
+        "t2m/Post-monsoon",
+        "rain/Post-monsoon"
+      ]
+    },
+    "grid_cell_tests": {
+      "dtr/Annual": {
+        "n_cells": 54,
+        "n_raw_p05": 21,
+        "n_fdr_q05": 4
+      },
+      "dtr/Monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 4,
+        "n_fdr_q05": 0
+      },
+      "dtr/Post-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 1,
+        "n_fdr_q05": 0
+      },
+      "dtr/Pre-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 7,
+        "n_fdr_q05": 0
+      },
+      "dtr/Winter": {
+        "n_cells": 54,
+        "n_raw_p05": 2,
+        "n_fdr_q05": 0
+      },
+      "rain/Annual": {
+        "n_cells": 54,
+        "n_raw_p05": 52,
+        "n_fdr_q05": 52
+      },
+      "rain/Monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 52,
+        "n_fdr_q05": 52
+      },
+      "rain/Post-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 14,
+        "n_fdr_q05": 8
+      },
+      "rain/Pre-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 51,
+        "n_fdr_q05": 51
+      },
+      "rain/Winter": {
+        "n_cells": 54,
+        "n_raw_p05": 17,
+        "n_fdr_q05": 0
+      },
+      "t2m/Annual": {
+        "n_cells": 54,
+        "n_raw_p05": 2,
+        "n_fdr_q05": 0
+      },
+      "t2m/Monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 26,
+        "n_fdr_q05": 21
+      },
+      "t2m/Post-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 32,
+        "n_fdr_q05": 23
+      },
+      "t2m/Pre-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 5,
+        "n_fdr_q05": 0
+      },
+      "t2m/Winter": {
+        "n_cells": 54,
+        "n_raw_p05": 1,
+        "n_fdr_q05": 0
+      },
+      "tmax/Annual": {
+        "n_cells": 54,
+        "n_raw_p05": 3,
+        "n_fdr_q05": 0
+      },
+      "tmax/Monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 3,
+        "n_fdr_q05": 1
+      },
+      "tmax/Post-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 15,
+        "n_fdr_q05": 8
+      },
+      "tmax/Pre-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 3,
+        "n_fdr_q05": 0
+      },
+      "tmax/Winter": {
+        "n_cells": 54,
+        "n_raw_p05": 5,
+        "n_fdr_q05": 0
+      },
+      "tmin/Annual": {
+        "n_cells": 54,
+        "n_raw_p05": 18,
+        "n_fdr_q05": 8
+      },
+      "tmin/Monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 19,
+        "n_fdr_q05": 9
+      },
+      "tmin/Post-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 10,
+        "n_fdr_q05": 0
+      },
+      "tmin/Pre-monsoon": {
+        "n_cells": 54,
+        "n_raw_p05": 2,
+        "n_fdr_q05": 0
+      },
+      "tmin/Winter": {
+        "n_cells": 54,
+        "n_raw_p05": 0,
+        "n_fdr_q05": 0
+      }
+    },
+    "autocorrelation_check_annual_lag1": {
+      "t2m": {
+        "acf": 0.05383,
+        "bound_95pct": 0.392,
+        "significant": false
+      },
+      "tmax": {
+        "acf": 0.12264,
+        "bound_95pct": 0.392,
+        "significant": false
+      },
+      "tmin": {
+        "acf": 0.24371,
+        "bound_95pct": 0.392,
+        "significant": false
+      },
+      "dtr": {
+        "acf": 0.18395,
+        "bound_95pct": 0.392,
+        "significant": false
+      },
+      "rain": {
+        "acf": 0.43012,
+        "bound_95pct": 0.392,
+        "significant": true
+      }
+    },
+    "grid_cells_with_significant_autocorrelation_pct": 9.48148,
+    "step_change_check": [
+      {
+        "variable": "t2m",
+        "unit": "°C",
+        "last_year_before_break": 2016,
+        "first_year_after_break": 2017,
+        "mean_before": 25.44976,
+        "mean_after": 25.30881,
+        "ratio_after_over_before": 0.99446,
+        "difference": -0.14095,
+        "pettitt_K": 30.0,
+        "p_pettitt": 1.0,
+        "step_change_detected": false
+      },
+      {
+        "variable": "tmax",
+        "unit": "°C",
+        "last_year_before_break": 2016,
+        "first_year_after_break": 2017,
+        "mean_before": 33.44316,
+        "mean_after": 32.90734,
+        "ratio_after_over_before": 0.98398,
+        "difference": -0.53582,
+        "pettitt_K": 90.0,
+        "p_pettitt": 0.1005,
+        "step_change_detected": false
+      },
+      {
+        "variable": "tmin",
+        "unit": "°C",
+        "last_year_before_break": 2013,
+        "first_year_after_break": 2014,
+        "mean_before": 18.2687,
+        "mean_after": 18.54219,
+        "ratio_after_over_before": 1.01497,
+        "difference": 0.27349,
+        "pettitt_K": 80.0,
+        "p_pettitt": 0.18826,
+        "step_change_detected": false
+      },
+      {
+        "variable": "dtr",
+        "unit": "°C",
+        "last_year_before_break": 2014,
+        "first_year_after_break": 2015,
+        "mean_before": 15.15952,
+        "mean_after": 14.45673,
+        "ratio_after_over_before": 0.95364,
+        "difference": -0.7028,
+        "pettitt_K": 122.0,
+        "p_pettitt": 0.00821,
+        "step_change_detected": true
+      },
+      {
+        "variable": "rain",
+        "unit": "mm",
+        "last_year_before_break": 2014,
+        "first_year_after_break": 2015,
+        "mean_before": 1842.70877,
+        "mean_after": 3135.61143,
+        "ratio_after_over_before": 1.70163,
+        "difference": 1292.90265,
+        "pettitt_K": 154.0,
+        "p_pettitt": 0.00031,
+        "step_change_detected": true
+      }
+    ],
+    "robustness_subperiod_trends": [
+      {
+        "variable": "t2m",
+        "span": "Full 2001-2025",
+        "unit": "°C",
+        "n_years": 25,
+        "mean": 25.39902,
+        "sen_slope_per_decade": 0.03003,
+        "sen_ci_low_per_decade": -0.12634,
+        "sen_ci_high_per_decade": 0.18154,
+        "p_value_final": 0.76142,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "t2m",
+        "span": "Before break (2001-2014)",
+        "unit": "°C",
+        "n_years": 14,
+        "mean": 25.39486,
+        "sen_slope_per_decade": 0.06207,
+        "sen_ci_low_per_decade": -0.12634,
+        "sen_ci_high_per_decade": 0.46471,
+        "p_value_final": 0.74256,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "t2m",
+        "span": "After break (2015-2025)",
+        "unit": "°C",
+        "n_years": 11,
+        "mean": 25.40432,
+        "sen_slope_per_decade": -0.25131,
+        "sen_ci_low_per_decade": -1.35329,
+        "sen_ci_high_per_decade": 0.89911,
+        "p_value_final": 0.7555,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmax",
+        "span": "Full 2001-2025",
+        "unit": "°C",
+        "n_years": 25,
+        "mean": 33.25026,
+        "sen_slope_per_decade": -0.14941,
+        "sen_ci_low_per_decade": -0.37986,
+        "sen_ci_high_per_decade": 0.17717,
+        "p_value_final": 0.29327,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmax",
+        "span": "Before break (2001-2014)",
+        "unit": "°C",
+        "n_years": 14,
+        "mean": 33.44053,
+        "sen_slope_per_decade": 0.3145,
+        "sen_ci_low_per_decade": -0.17569,
+        "sen_ci_high_per_decade": 0.82451,
+        "p_value_final": 0.12531,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmax",
+        "span": "After break (2015-2025)",
+        "unit": "°C",
+        "n_years": 11,
+        "mean": 33.00811,
+        "sen_slope_per_decade": -0.04909,
+        "sen_ci_low_per_decade": -1.03763,
+        "sen_ci_high_per_decade": 1.88461,
+        "p_value_final": 1.0,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmin",
+        "span": "Full 2001-2025",
+        "unit": "°C",
+        "n_years": 25,
+        "mean": 18.39997,
+        "sen_slope_per_decade": 0.13925,
+        "sen_ci_low_per_decade": -0.04781,
+        "sen_ci_high_per_decade": 0.29782,
+        "p_value_final": 0.08821,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmin",
+        "span": "Before break (2001-2014)",
+        "unit": "°C",
+        "n_years": 14,
+        "mean": 18.28101,
+        "sen_slope_per_decade": -0.08168,
+        "sen_ci_low_per_decade": -0.41532,
+        "sen_ci_high_per_decade": 0.4673,
+        "p_value_final": 0.91281,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "tmin",
+        "span": "After break (2015-2025)",
+        "unit": "°C",
+        "n_years": 11,
+        "mean": 18.55138,
+        "sen_slope_per_decade": 0.13706,
+        "sen_ci_low_per_decade": -0.58068,
+        "sen_ci_high_per_decade": 0.79819,
+        "p_value_final": 0.87627,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "dtr",
+        "span": "Full 2001-2025",
+        "unit": "°C",
+        "n_years": 25,
+        "mean": 14.85029,
+        "sen_slope_per_decade": -0.31259,
+        "sen_ci_low_per_decade": -0.62957,
+        "sen_ci_high_per_decade": -0.03998,
+        "p_value_final": 0.02985,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "dtr",
+        "span": "Before break (2001-2014)",
+        "unit": "°C",
+        "n_years": 14,
+        "mean": 15.15952,
+        "sen_slope_per_decade": 0.33811,
+        "sen_ci_low_per_decade": -0.38412,
+        "sen_ci_high_per_decade": 1.04839,
+        "p_value_final": 0.15463,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "dtr",
+        "span": "After break (2015-2025)",
+        "unit": "°C",
+        "n_years": 11,
+        "mean": 14.45673,
+        "sen_slope_per_decade": 0.10684,
+        "sen_ci_low_per_decade": -1.06371,
+        "sen_ci_high_per_decade": 1.24523,
+        "p_value_final": 1.0,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "rain",
+        "span": "Full 2001-2025",
+        "unit": "mm",
+        "n_years": 25,
+        "mean": 2411.58594,
+        "sen_slope_per_decade": 628.4663,
+        "sen_ci_low_per_decade": 384.06313,
+        "sen_ci_high_per_decade": 942.534,
+        "p_value_final": 0.0001,
+        "p_method": "MK + TFPW pre-whitening"
+      },
+      {
+        "variable": "rain",
+        "span": "Before break (2001-2014)",
+        "unit": "mm",
+        "n_years": 14,
+        "mean": 1842.70877,
+        "sen_slope_per_decade": 141.59842,
+        "sen_ci_low_per_decade": -184.49842,
+        "sen_ci_high_per_decade": 386.95183,
+        "p_value_final": 0.38107,
+        "p_method": "Mann-Kendall"
+      },
+      {
+        "variable": "rain",
+        "span": "After break (2015-2025)",
+        "unit": "mm",
+        "n_years": 11,
+        "mean": 3135.61143,
+        "sen_slope_per_decade": -470.10068,
+        "sen_ci_low_per_decade": -2161.70209,
+        "sen_ci_high_per_decade": 1593.67502,
+        "p_value_final": 0.53342,
+        "p_method": "Mann-Kendall"
+      }
+    ]
+  },
+  "q5_climate_patterns": {
+    "seasonality": {
+      "warmest_month": "May",
+      "warmest_month_t2m": 29.71984,
+      "coolest_month": "January",
+      "coolest_month_t2m": 17.47583,
+      "hottest_tmax_month": "April",
+      "hottest_tmax": 39.33985,
+      "largest_dtr_month": "March",
+      "largest_dtr": 22.31976,
+      "smallest_dtr_month": "July",
+      "smallest_dtr": 8.1817,
+      "wettest_month": "July",
+      "wettest_month_mm": 490.89762,
+      "driest_month": "January",
+      "driest_month_mm": 9.74236,
+      "monsoon_share_of_annual_rain_pct": 68.71773,
+      "seasonal_means": {
+        "Winter": {
+          "t2m": 19.13414,
+          "rain_mm": 45.32365
+        },
+        "Pre-monsoon": {
+          "t2m": 28.54071,
+          "rain_mm": 469.53801
+        },
+        "Monsoon": {
+          "t2m": 28.34483,
+          "rain_mm": 1657.1871
+        },
+        "Post-monsoon": {
+          "t2m": 24.22296,
+          "rain_mm": 240.33524
+        }
+      },
+      "seasonal_cycle_share_of_t2m_variance_pct": 105.52957
+    },
+    "extremes": {
+      "hottest_months_by_z": [
+        {
+          "month": "2005-06",
+          "z": 2.81739,
+          "anomaly": 1.72107
+        },
+        {
+          "month": "2023-07",
+          "z": 2.36546,
+          "anomaly": 0.65113
+        },
+        {
+          "month": "2020-10",
+          "z": 2.30139,
+          "anomaly": 1.3811
+        },
+        {
+          "month": "2024-09",
+          "z": 2.19484,
+          "anomaly": 0.75129
+        },
+        {
+          "month": "2024-07",
+          "z": 2.09251,
+          "anomaly": 0.576
+        }
+      ],
+      "coldest_months_by_z": [
+        {
+          "month": "2018-05",
+          "z": -2.32905,
+          "anomaly": -1.82646
+        },
+        {
+          "month": "2012-12",
+          "z": -2.26929,
+          "anomaly": -1.82392
+        },
+        {
+          "month": "2022-02",
+          "z": -2.22869,
+          "anomaly": -2.54167
+        },
+        {
+          "month": "2012-11",
+          "z": -2.21232,
+          "anomaly": -1.48916
+        },
+        {
+          "month": "2004-09",
+          "z": -2.17353,
+          "anomaly": -0.744
+        }
+      ],
+      "wettest_months_by_z": [
+        {
+          "month": "2017-03",
+          "z": 3.42137,
+          "anomaly": 148.41265
+        },
+        {
+          "month": "2019-02",
+          "z": 3.36751,
+          "anomaly": 68.54333
+        },
+        {
+          "month": "2017-04",
+          "z": 3.24763,
+          "anomaly": 300.6039
+        },
+        {
+          "month": "2017-12",
+          "z": 2.91462,
+          "anomaly": 70.09736
+        },
+        {
+          "month": "2019-11",
+          "z": 2.78534,
+          "anomaly": 101.58782
+        }
+      ],
+      "driest_months_by_z": [
+        {
+          "month": "2005-06",
+          "z": -2.21345,
+          "anomaly": -288.58957
+        },
+        {
+          "month": "2011-10",
+          "z": -1.56399,
+          "anomaly": -170.26285
+        },
+        {
+          "month": "2006-10",
+          "z": -1.4318,
+          "anomaly": -155.87248
+        },
+        {
+          "month": "2002-10",
+          "z": -1.40679,
+          "anomaly": -153.14903
+        },
+        {
+          "month": "2009-06",
+          "z": -1.39483,
+          "anomaly": -181.85737
+        }
+      ],
+      "hottest_years": [
+        {
+          "year": 2016,
+          "t2m_c": 25.97225,
+          "t2m_anom_c": 0.57323
+        },
+        {
+          "year": 2023,
+          "t2m_c": 25.76084,
+          "t2m_anom_c": 0.36182
+        },
+        {
+          "year": 2010,
+          "t2m_c": 25.69719,
+          "t2m_anom_c": 0.29817
+        }
+      ],
+      "coolest_years": [
+        {
+          "year": 2020,
+          "t2m_c": 24.87631,
+          "t2m_anom_c": -0.52272
+        },
+        {
+          "year": 2018,
+          "t2m_c": 24.93337,
+          "t2m_anom_c": -0.46565
+        },
+        {
+          "year": 2007,
+          "t2m_c": 25.10149,
+          "t2m_anom_c": -0.29753
+        }
+      ],
+      "wettest_years": [
+        {
+          "year": 2017,
+          "rain_mm": 4571.19341,
+          "rain_anom_pct": 89.55134
+        },
+        {
+          "year": 2019,
+          "rain_mm": 3682.2471,
+          "rain_anom_pct": 52.68986
+        },
+        {
+          "year": 2020,
+          "rain_mm": 3466.07689,
+          "rain_anom_pct": 43.72604
+        }
+      ],
+      "driest_years": [
+        {
+          "year": 2003,
+          "rain_mm": 1562.12479,
+          "rain_anom_pct": -35.22417
+        },
+        {
+          "year": 2006,
+          "rain_mm": 1619.63637,
+          "rain_anom_pct": -32.83937
+        },
+        {
+          "year": 2008,
+          "rain_mm": 1658.41204,
+          "rain_anom_pct": -31.23148
+        }
+      ],
+      "note_rain_extremes": "5 of the 5 wettest months are after the detected rainfall step change; rainfall anomalies are relative to the full-period mean and are inflated after the break.",
+      "n_hot_months_z_ge_1_5": 18,
+      "n_cold_months_z_le_-1_5": 23,
+      "n_wet_months_z_ge_1_5": 22,
+      "n_dry_months_z_le_-1_5": 2,
+      "longest_events": [
+        {
+          "event_type": "Cold spell",
+          "variable": "t2m",
+          "start": "2020-02",
+          "end": "2020-06",
+          "duration_months": 5,
+          "mean_z": -1.58724,
+          "peak_z": -1.89228,
+          "peak_month": "2020-02",
+          "mean_anomaly": -1.44702,
+          "anomaly_unit": "°C"
+        },
+        {
+          "event_type": "Wet spell",
+          "variable": "rain",
+          "start": "2017-06",
+          "end": "2017-10",
+          "duration_months": 5,
+          "mean_z": 2.13716,
+          "peak_z": 2.44662,
+          "peak_month": "2017-08",
+          "mean_anomaly": 326.40041,
+          "anomaly_unit": "mm/month"
+        },
+        {
+          "event_type": "Hot spell",
+          "variable": "t2m",
+          "start": "2015-11",
+          "end": "2016-03",
+          "duration_months": 5,
+          "mean_z": 1.57822,
+          "peak_z": 1.96144,
+          "peak_month": "2016-02",
+          "mean_anomaly": 1.39379,
+          "anomaly_unit": "°C"
+        },
+        {
+          "event_type": "Cold spell",
+          "variable": "t2m",
+          "start": "2012-10",
+          "end": "2013-01",
+          "duration_months": 4,
+          "mean_z": -2.00596,
+          "peak_z": -2.26929,
+          "peak_month": "2012-12",
+          "mean_anomaly": -1.46502,
+          "anomaly_unit": "°C"
+        },
+        {
+          "event_type": "Wet spell",
+          "variable": "rain",
+          "start": "2018-04",
+          "end": "2018-07",
+          "duration_months": 4,
+          "mean_z": 1.51271,
+          "peak_z": 2.05617,
+          "peak_month": "2018-04",
+          "mean_anomaly": 206.30723,
+          "anomaly_unit": "mm/month"
+        },
+        {
+          "event_type": "Cold spell",
+          "variable": "t2m",
+          "start": "2004-09",
+          "end": "2004-11",
+          "duration_months": 3,
+          "mean_z": -1.82608,
+          "peak_z": -2.17353,
+          "peak_month": "2004-09",
+          "mean_anomaly": -0.94139,
+          "anomaly_unit": "°C"
+        }
+      ]
+    },
+    "dtr": {
+      "annual_dtr_trend": {
+        "mean": 14.85029,
+        "unit": "°C",
+        "sen_slope_per_decade": -0.31259,
+        "ci95_low_per_decade": -0.62957,
+        "ci95_high_per_decade": -0.03998,
+        "total_change_2001_2025": -0.75022,
+        "pct_change_per_decade": null,
+        "ols_slope_per_decade": -0.32159,
+        "r2": 0.19192,
+        "p_ols": 0.0285,
+        "kendall_tau": -0.31333,
+        "p_value": 0.02985,
+        "p_method": "Mann-Kendall",
+        "q_value_bh": 0.12439,
+        "lag1_autocorr": 0.1854,
+        "pettitt_p": 0.00821,
+        "pettitt_break_year": 2015.0,
+        "trend_reliability": "Caution: step change detected (Pettitt p<0.05) - may not be a gradual trend"
+      },
+      "plain_english": "Diurnal temperature range decreased: Sen's slope -0.31 °C/decade (95% CI -0.63 to -0.04; p = 0.030) - significant before, but not after, FDR correction across the national tests; a step change around 2015 was detected (Pettitt p = 0.008), so this is not a smooth trend."
+    },
+    "correlations": {
+      "annual_detrended_temperature_vs_rainfall": [
+        {
+          "temperature_var": "t2m",
+          "n": 25,
+          "pearson_r": -0.18372,
+          "p_pearson": 0.37937,
+          "spearman_rho": -0.14538,
+          "strength": "very weak",
+          "direction": "negative"
+        },
+        {
+          "temperature_var": "tmax",
+          "n": 25,
+          "pearson_r": -0.30904,
+          "p_pearson": 0.13279,
+          "spearman_rho": -0.21538,
+          "strength": "weak",
+          "direction": "negative"
+        },
+        {
+          "temperature_var": "tmin",
+          "n": 25,
+          "pearson_r": -0.12259,
+          "p_pearson": 0.55938,
+          "spearman_rho": -0.13154,
+          "strength": "very weak",
+          "direction": "negative"
+        },
+        {
+          "temperature_var": "dtr",
+          "n": 25,
+          "pearson_r": -0.24557,
+          "p_pearson": 0.23672,
+          "spearman_rho": -0.16,
+          "strength": "weak",
+          "direction": "negative"
+        }
+      ],
+      "strongest_significant_national_correlations": [
+        {
+          "period": "Pre-monsoon (monthly anomalies)",
+          "temperature_var": "t2m",
+          "lag_months": 0,
+          "n": 75,
+          "pearson_r": -0.65845,
+          "p_pearson": 0.0,
+          "note": "monthly anomalies in this season"
+        },
+        {
+          "period": "Pre-monsoon (monthly anomalies)",
+          "temperature_var": "tmax",
+          "lag_months": 0,
+          "n": 75,
+          "pearson_r": -0.59593,
+          "p_pearson": 0.0,
+          "note": "monthly anomalies in this season"
+        },
+        {
+          "period": "Pre-monsoon",
+          "temperature_var": "t2m",
+          "lag_months": 0,
+          "n": 25,
+          "pearson_r": -0.58087,
+          "p_pearson": 0.00233,
+          "note": "yearly values, step change removed (series demeaned before/after 2015)"
+        },
+        {
+          "period": "Pre-monsoon",
+          "temperature_var": "dtr",
+          "lag_months": 0,
+          "n": 25,
+          "pearson_r": -0.53779,
+          "p_pearson": 0.00556,
+          "note": "yearly values, step change removed (series demeaned before/after 2015)"
+        },
+        {
+          "period": "Pre-monsoon",
+          "temperature_var": "tmax",
+          "lag_months": 0,
+          "n": 25,
+          "pearson_r": -0.5365,
+          "p_pearson": 0.0057,
+          "note": "yearly values, step change removed (series demeaned before/after 2015)"
+        },
+        {
+          "period": "Pre-monsoon (monthly anomalies)",
+          "temperature_var": "dtr",
+          "lag_months": 0,
+          "n": 75,
+          "pearson_r": -0.52317,
+          "p_pearson": 0.0,
+          "note": "monthly anomalies in this season"
+        }
+      ],
+      "note": "Correlation is not causation: in Bangladesh cloud/rain cooling of daytime temperature and the shared seasonal cycle can both produce relationships."
+    }
+  },
+  "headline_findings": [
+    "TEMPERATURE: Mean temperature shows no statistically significant trend: Sen's slope +0.03 °C/decade (95% CI -0.13 to +0.18; p = 0.761).",
+    "DAY vs NIGHT: Maximum temperature shows no statistically significant trend: Sen's slope -0.15 °C/decade (95% CI -0.38 to +0.18; p = 0.293). Minimum temperature shows only a weak, non-significant tendency to rise: Sen's slope +0.14 °C/decade (95% CI -0.05 to +0.30; p = 0.088).",
+    "RAINFALL (data-quality alert): national annual rainfall in this product jumps from 1843 mm/yr (up to 2014) to 3136 mm/yr (from 2015), a x1.70 step (Pettitt p = 0.0003) seen in every month and every grid cell. The apparent +628 mm/decade 'trend' is therefore mostly this step; within the sub-periods no significant trend remains. Verify with an independent product (GPM IMERG / CHIRPS / BMD gauges) before treating it as real climate change.",
+    "SEASONS: the largest national mean-temperature rise is in the Post-monsoon season (+0.32 °C/decade, p = 0.023); 23 of 54 grid cells are significant after FDR correction. At national level this is significant before but not after FDR correction across all national tests - treat as an emerging signal.",
+    "WHERE: annual mean temperature has 34 of 54 cells with positive slope; fastest in Chattogram area (+0.19 °C/decade at 22.5N, 91.25E), 0 cells significant after FDR - i.e. no cell has a statistically reliable annual warming trend, so spatial differences in annual warming should be read as tendencies, not facts. Highest regional mean warming rate: Sylhet.",
+    "EXTREMES: hottest year 2016 (25.97 °C), coolest 2020 (24.88 °C); hottest month anomaly 2005-06 (z = 2.8); wettest rated month 2017-03 (z = 3.4).",
+    "SEASONALITY: May is the warmest month (29.7 °C), January the coolest; monsoon (Jun-Sep) brings 69% of annual rainfall, peaking in July.",
+    "CORRELATION: annual maximum temperature vs rainfall r = -0.31 (p = 0.133, weak negative; yearly values, step change removed (series demeaned before/after 2015)).",
+    "PATTERN: in the Pre-monsoon season, hotter years are drier: Tmax vs rainfall r = -0.54 (p = 0.006, n = 25) even after removing the rainfall step change - consistent with cloud/rain cooling of daytime temperature."
+  ],
+  "data_quality": {
+    "validation_checks": [
+      {
+        "check": "Datasets found",
+        "status": "PASS",
+        "detail": "T2M (POWER_T2M.csv), T2M_MAX (POWER_T2M_MAX.csv), T2M_MIN (POWER_T2M_MIN.csv), PRECTOTCORR (POWER_PRECTOTCORR.csv)"
+      },
+      {
+        "check": "T2M: duplicate (year, lat, lon) rows",
+        "status": "PASS",
+        "detail": "0 duplicates found"
+      },
+      {
+        "check": "T2M: NASA fill value (-999)",
+        "status": "PASS",
+        "detail": "0 cells set to NaN"
+      },
+      {
+        "check": "T2M: missing values after parsing",
+        "status": "PASS",
+        "detail": "0 missing monthly values out of 31200"
+      },
+      {
+        "check": "T2M: rows",
+        "status": "INFO",
+        "detail": "2600 station-years (cells x years)"
+      },
+      {
+        "check": "T2M_MAX: duplicate (year, lat, lon) rows",
+        "status": "PASS",
+        "detail": "0 duplicates found"
+      },
+      {
+        "check": "T2M_MAX: NASA fill value (-999)",
+        "status": "PASS",
+        "detail": "0 cells set to NaN"
+      },
+      {
+        "check": "T2M_MAX: missing values after parsing",
+        "status": "PASS",
+        "detail": "0 missing monthly values out of 31200"
+      },
+      {
+        "check": "T2M_MAX: rows",
+        "status": "INFO",
+        "detail": "2600 station-years (cells x years)"
+      },
+      {
+        "check": "T2M_MIN: duplicate (year, lat, lon) rows",
+        "status": "PASS",
+        "detail": "0 duplicates found"
+      },
+      {
+        "check": "T2M_MIN: NASA fill value (-999)",
+        "status": "PASS",
+        "detail": "0 cells set to NaN"
+      },
+      {
+        "check": "T2M_MIN: missing values after parsing",
+        "status": "PASS",
+        "detail": "0 missing monthly values out of 31200"
+      },
+      {
+        "check": "T2M_MIN: rows",
+        "status": "INFO",
+        "detail": "2600 station-years (cells x years)"
+      },
+      {
+        "check": "PRECTOTCORR: duplicate (year, lat, lon) rows",
+        "status": "PASS",
+        "detail": "0 duplicates found"
+      },
+      {
+        "check": "PRECTOTCORR: NASA fill value (-999)",
+        "status": "PASS",
+        "detail": "0 cells set to NaN"
+      },
+      {
+        "check": "PRECTOTCORR: missing values after parsing",
+        "status": "PASS",
+        "detail": "0 missing monthly values out of 31200"
+      },
+      {
+        "check": "PRECTOTCORR: rows",
+        "status": "INFO",
+        "detail": "2600 station-years (cells x years)"
+      },
+      {
+        "check": "ANN column handling",
+        "status": "INFO",
+        "detail": "ANN in T2M_MAX/T2M_MIN is the annual MAX/MIN of the monthly values (not a mean); ANN in T2M/PRECTOTCORR is the mean. ANN is therefore dropped and annual values are recomputed from the 12 monthly values."
+      },
+      {
+        "check": "Merged table completeness",
+        "status": "PASS",
+        "detail": "31200 rows = 104 grid cells x 25 years x 12 months (expected 31200)"
+      },
+      {
+        "check": "Time coverage",
+        "status": "INFO",
+        "detail": "2001-2025"
+      },
+      {
+        "check": "Gap filling",
+        "status": "PASS",
+        "detail": "No gaps - nothing imputed"
+      },
+      {
+        "check": "Temperature in physical range (-30..60 °C)",
+        "status": "PASS",
+        "detail": "0 implausible values"
+      },
+      {
+        "check": "Rainfall in physical range (0..150 mm/day)",
+        "status": "PASS",
+        "detail": "0 implausible values"
+      },
+      {
+        "check": "Ordering T2M_MIN <= T2M <= T2M_MAX",
+        "status": "PASS",
+        "detail": "0 violating rows"
+      },
+      {
+        "check": "Derived variables",
+        "status": "PASS",
+        "detail": "DTR = T2M_MAX - T2M_MIN; monthly rainfall (mm/month) = mm/day x days in month (leap-year aware)"
+      },
+      {
+        "check": "Bangladesh grid mask",
+        "status": "PASS",
+        "detail": "54 of 104 grid cells overlap Bangladesh by >= 20% of cell area; the rest (India/Myanmar/Bay of Bengal) are kept in the master but excluded from analysis"
+      }
+    ]
+  },
+  "caveats": [
+    "MERRA-2 is a reanalysis (model + assimilated observations), not station data; trends can include changes in the observing system.",
+    "25 years is short for climate-trend work; interannual variability (e.g. ENSO, monsoon strength) is large relative to the signal.",
+    "Grid cells are 0.5°x0.625° (~55x65 km); Bangladesh cells are selected with a simplified boundary outline (>= 20% cell overlap).",
+    "Neighbouring cells are spatially correlated, so FDR (which assumes weak dependence) is approximate; interpret clusters of significant cells together.",
+    "Rainfall shows a step change in this product (see step_change_check); compare with an independent rainfall dataset before drawing climate conclusions.",
+    "Correlation does not imply causation."
+  ]
+}

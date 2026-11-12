@@ -1,0 +1,36 @@
+series,variable,lag,unit_of_lag,n,acf,bound_95pct,significant
+Annual t2m (detrended residuals),t2m,1,year,25,0.05383,0.392,False
+Annual t2m (detrended residuals),t2m,2,year,25,-0.12699,0.392,False
+Annual t2m (detrended residuals),t2m,3,year,25,-0.32929,0.392,False
+Monthly t2m anomalies,t2m,1,month,300,0.35217,0.11316,True
+Monthly t2m anomalies,t2m,3,month,300,0.025283,0.11316,False
+Monthly t2m anomalies,t2m,6,month,300,-0.078643,0.11316,False
+Monthly t2m anomalies,t2m,12,month,300,-0.02652,0.11316,False
+Annual tmax (detrended residuals),tmax,1,year,25,0.12264,0.392,False
+Annual tmax (detrended residuals),tmax,2,year,25,0.19121,0.392,False
+Annual tmax (detrended residuals),tmax,3,year,25,-0.12613,0.392,False
+Monthly tmax anomalies,tmax,1,month,300,0.40475,0.11316,True
+Monthly tmax anomalies,tmax,3,month,300,-0.0028054,0.11316,False
+Monthly tmax anomalies,tmax,6,month,300,-0.043235,0.11316,False
+Monthly tmax anomalies,tmax,12,month,300,0.048601,0.11316,False
+Annual tmin (detrended residuals),tmin,1,year,25,0.24371,0.392,False
+Annual tmin (detrended residuals),tmin,2,year,25,-0.24651,0.392,False
+Annual tmin (detrended residuals),tmin,3,year,25,-0.39811,0.392,True
+Monthly tmin anomalies,tmin,1,month,300,0.067093,0.11316,False
+Monthly tmin anomalies,tmin,3,month,300,0.06961,0.11316,False
+Monthly tmin anomalies,tmin,6,month,300,0.019231,0.11316,False
+Monthly tmin anomalies,tmin,12,month,300,-0.072638,0.11316,False
+Annual dtr (detrended residuals),dtr,1,year,25,0.18395,0.392,False
+Annual dtr (detrended residuals),dtr,2,year,25,0.28001,0.392,False
+Annual dtr (detrended residuals),dtr,3,year,25,-0.20072,0.392,False
+Monthly dtr anomalies,dtr,1,month,300,0.19847,0.11316,True
+Monthly dtr anomalies,dtr,3,month,300,0.096981,0.11316,False
+Monthly dtr anomalies,dtr,6,month,300,-0.029932,0.11316,False
+Monthly dtr anomalies,dtr,12,month,300,0.014823,0.11316,False
+Annual rain (detrended residuals),rain,1,year,25,0.43012,0.392,True
+Annual rain (detrended residuals),rain,2,year,25,0.24517,0.392,False
+Annual rain (detrended residuals),rain,3,year,25,-0.011151,0.392,False
+Monthly rain anomalies,rain,1,month,300,0.43703,0.11316,True
+Monthly rain anomalies,rain,3,month,300,0.28228,0.11316,True
+Monthly rain anomalies,rain,6,month,300,0.10849,0.11316,False
+Monthly rain anomalies,rain,12,month,300,0.35902,0.11316,True

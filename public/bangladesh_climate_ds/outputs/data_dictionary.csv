@@ -1,0 +1,309 @@
+file,column,description,unit
+cleaned_master_monthly.csv,date,First day of the month,date
+cleaned_master_monthly.csv,year,Calendar year,year
+cleaned_master_monthly.csv,month,Calendar month number,-
+cleaned_master_monthly.csv,season,"Bangladesh season: Winter (Dec-Feb), Pre-monsoon (Mar-May), Monsoon (Jun-Sep), Post-monsoon (Oct-Nov)",-
+cleaned_master_monthly.csv,season_year,Year the season belongs to (December counts toward the following winter),year
+cleaned_master_monthly.csv,cell_id,Unique grid-cell id (latitude_longitude),-
+cleaned_master_monthly.csv,lat,Grid-cell centre latitude,degrees N
+cleaned_master_monthly.csv,lon,Grid-cell centre longitude,degrees E
+cleaned_master_monthly.csv,region,Nearest division (approximate grouping),-
+cleaned_master_monthly.csv,in_bangladesh,True if cell is used for Bangladesh analysis (overlap >= 0.20),bool
+cleaned_master_monthly.csv,bd_overlap,Fraction of the grid cell that lies inside the Bangladesh outline,0-1
+cleaned_master_monthly.csv,weight,"Area weight = overlap x cos(latitude), used for national averages",-
+cleaned_master_monthly.csv,t2m,"Mean 2 m air temperature (NASA POWER T2M, MERRA-2)",°C
+cleaned_master_monthly.csv,tmax,"Maximum 2 m air temperature (T2M_MAX, monthly product)",°C
+cleaned_master_monthly.csv,tmin,"Minimum 2 m air temperature (T2M_MIN, monthly product)",°C
+cleaned_master_monthly.csv,dtr,Diurnal temperature range = T2M_MAX - T2M_MIN,°C
+cleaned_master_monthly.csv,prec_mm_day,Corrected precipitation rate (PRECTOTCORR),mm/day
+cleaned_master_monthly.csv,rain_mm_month,Monthly rainfall = mm/day x days in month,mm/month
+cleaned_master_monthly.csv,days_in_month,Days in the calendar month (leap-year aware),days
+cleaned_master_monthly.csv,imputed,True if any value was gap-filled by interpolation,bool
+cleaned_master_monthly.csv,flag_temp_order,True if T2M_MIN <= T2M <= T2M_MAX is violated,bool
+annual_country_summary.csv,year,Calendar year,year
+annual_country_summary.csv,t2m_c,National mean temperature (area-weighted),°C
+annual_country_summary.csv,tmax_c,National mean daily-maximum temperature,°C
+annual_country_summary.csv,tmin_c,National mean daily-minimum temperature,°C
+annual_country_summary.csv,dtr_c,National diurnal temperature range,°C
+annual_country_summary.csv,rain_mm,National rainfall total for the year/season,mm
+annual_country_summary.csv,t2m_anom_c,T2M anomaly vs 2001-2025 mean of the same period,°C
+annual_country_summary.csv,tmax_anom_c,T2M_MAX anomaly,°C
+annual_country_summary.csv,tmin_anom_c,T2M_MIN anomaly,°C
+annual_country_summary.csv,dtr_anom_c,DTR anomaly,°C
+annual_country_summary.csv,rain_anom_mm,Rainfall anomaly,mm
+annual_country_summary.csv,rain_anom_pct,Rainfall anomaly as % of the 2001-2025 mean,%
+annual_country_summary.csv,t2m_roll5_c,5-year centred rolling mean of T2M,°C
+annual_country_summary.csv,rain_roll5_mm,5-year centred rolling mean of annual rainfall,mm
+annual_country_summary.csv,t2m_rank_hottest,Rank of the period's temperature (1 = hottest),-
+annual_country_summary.csv,rain_rank_wettest,Rank of the period's rainfall (1 = wettest),-
+annual_country_summary.csv,decade,"Decade group (2001-2010, 2011-2020, 2021-2025)",-
+annual_country_summary.csv,n_grid_cells,Number of Bangladesh grid cells averaged,-
+seasonal_country_summary.csv,season,"Bangladesh season: Winter (Dec-Feb), Pre-monsoon (Mar-May), Monsoon (Jun-Sep), Post-monsoon (Oct-Nov)",-
+seasonal_country_summary.csv,year,Calendar year,year
+seasonal_country_summary.csv,t2m_c,National mean temperature (area-weighted),°C
+seasonal_country_summary.csv,tmax_c,National mean daily-maximum temperature,°C
+seasonal_country_summary.csv,tmin_c,National mean daily-minimum temperature,°C
+seasonal_country_summary.csv,dtr_c,National diurnal temperature range,°C
+seasonal_country_summary.csv,rain_mm,National rainfall total for the year/season,mm
+seasonal_country_summary.csv,t2m_anom_c,T2M anomaly vs 2001-2025 mean of the same period,°C
+seasonal_country_summary.csv,tmax_anom_c,T2M_MAX anomaly,°C
+seasonal_country_summary.csv,tmin_anom_c,T2M_MIN anomaly,°C
+seasonal_country_summary.csv,dtr_anom_c,DTR anomaly,°C
+seasonal_country_summary.csv,rain_anom_mm,Rainfall anomaly,mm
+seasonal_country_summary.csv,rain_anom_pct,Rainfall anomaly as % of the 2001-2025 mean,%
+seasonal_country_summary.csv,t2m_rank_hottest,Rank of the period's temperature (1 = hottest),-
+seasonal_country_summary.csv,rain_rank_wettest,Rank of the period's rainfall (1 = wettest),-
+seasonal_country_summary.csv,months_in_season,Months in the season,-
+seasonal_country_summary.csv,decade,"Decade group (2001-2010, 2011-2020, 2021-2025)",-
+seasonal_country_summary.csv,n_grid_cells,Number of Bangladesh grid cells averaged,-
+grid_trends.csv,cell_id,Unique grid-cell id (latitude_longitude),-
+grid_trends.csv,lat,Grid-cell centre latitude,degrees N
+grid_trends.csv,lon,Grid-cell centre longitude,degrees E
+grid_trends.csv,region,Nearest division (approximate grouping),-
+grid_trends.csv,bd_overlap,Fraction of the grid cell that lies inside the Bangladesh outline,0-1
+grid_trends.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+grid_trends.csv,period,Annual or season name,-
+grid_trends.csv,unit,Unit of the variable (rain = mm per year or season),-
+grid_trends.csv,n_years,Number of years in the series,-
+grid_trends.csv,mean,Mean of the series,variable unit
+grid_trends.csv,sen_slope_per_decade,Sen's slope x 10 (robust trend per decade),unit/decade
+grid_trends.csv,sen_ci_low_per_decade,Lower 95% CI of Sen's slope per decade,unit/decade
+grid_trends.csv,sen_ci_high_per_decade,Upper 95% CI of Sen's slope per decade,unit/decade
+grid_trends.csv,pct_change_per_decade,Rainfall only: Sen slope per decade as % of mean,%/decade
+grid_trends.csv,total_change_2001_2025,Sen slope x (last year - first year),unit
+grid_trends.csv,ols_slope_per_decade,Linear-regression slope x 10,unit/decade
+grid_trends.csv,r2,Coefficient of determination of the linear regression,0-1
+grid_trends.csv,p_value_ols,Two-sided p-value of the OLS slope,-
+grid_trends.csv,mk_tau,Kendall's tau of the Mann-Kendall test,-1..1
+grid_trends.csv,mk_z,Mann-Kendall Z statistic,-
+grid_trends.csv,p_value_mk,"Mann-Kendall p-value (two-sided, tie-corrected)",-
+grid_trends.csv,lag1_autocorr,Lag-1 autocorrelation of detrended series,-1..1
+grid_trends.csv,autocorr_significant,True if |lag-1 autocorrelation| exceeds the 95% white-noise bound,bool
+grid_trends.csv,p_value_tfpw,Mann-Kendall p after TFPW pre-whitening (only if autocorrelation significant),-
+grid_trends.csv,p_value_final,"p-value used for decisions (TFPW if autocorrelated, else Mann-Kendall)",-
+grid_trends.csv,p_method,Which test produced p_value_final,-
+grid_trends.csv,q_value_bh,Benjamini-Hochberg FDR-adjusted p-value,-
+grid_trends.csv,significant_raw_p05,p_value_final < 0.05,bool
+grid_trends.csv,significant_fdr_q05,q_value_bh < 0.05 (significance map flag),bool
+grid_trends.csv,trend_direction,Sign of Sen's slope,-
+grid_trends.csv,trend_class,Combined label: direction + significance level,-
+grid_trends.csv,pettitt_p,Pettitt change-point test p-value,-
+grid_trends.csv,pettitt_break_year,First year after the most likely change point,year
+grid_trends.csv,trend_reliability,Whether a significant trend looks gradual or step-like,-
+grid_trends.csv,rank_in_group,Rank of the cell's slope within variable/period (1 = largest),-
+climate_anomalies.csv,date,First day of the month,date
+climate_anomalies.csv,year,Calendar year,year
+climate_anomalies.csv,month,Calendar month number,-
+climate_anomalies.csv,season,"Bangladesh season: Winter (Dec-Feb), Pre-monsoon (Mar-May), Monsoon (Jun-Sep), Post-monsoon (Oct-Nov)",-
+climate_anomalies.csv,t2m,"Mean 2 m air temperature (NASA POWER T2M, MERRA-2)",°C
+climate_anomalies.csv,t2m_clim,Climatological (2001-2025) mean of the calendar month: Mean temperature (T2M),°C
+climate_anomalies.csv,t2m_anom,Anomaly vs climatology: Mean temperature (T2M),°C
+climate_anomalies.csv,t2m_z,Standardised anomaly (z-score) of the calendar month: Mean temperature (T2M),SD
+climate_anomalies.csv,tmax,"Maximum 2 m air temperature (T2M_MAX, monthly product)",°C
+climate_anomalies.csv,tmax_clim,Climatological (2001-2025) mean of the calendar month: Maximum temperature (T2M_MAX),°C
+climate_anomalies.csv,tmax_anom,Anomaly vs climatology: Maximum temperature (T2M_MAX),°C
+climate_anomalies.csv,tmax_z,Standardised anomaly (z-score) of the calendar month: Maximum temperature (T2M_MAX),SD
+climate_anomalies.csv,tmin,"Minimum 2 m air temperature (T2M_MIN, monthly product)",°C
+climate_anomalies.csv,tmin_clim,Climatological (2001-2025) mean of the calendar month: Minimum temperature (T2M_MIN),°C
+climate_anomalies.csv,tmin_anom,Anomaly vs climatology: Minimum temperature (T2M_MIN),°C
+climate_anomalies.csv,tmin_z,Standardised anomaly (z-score) of the calendar month: Minimum temperature (T2M_MIN),SD
+climate_anomalies.csv,dtr,Diurnal temperature range = T2M_MAX - T2M_MIN,°C
+climate_anomalies.csv,dtr_clim,Climatological (2001-2025) mean of the calendar month: Diurnal temperature range (DTR),°C
+climate_anomalies.csv,dtr_anom,Anomaly vs climatology: Diurnal temperature range (DTR),°C
+climate_anomalies.csv,dtr_z,Standardised anomaly (z-score) of the calendar month: Diurnal temperature range (DTR),SD
+climate_anomalies.csv,rain,National monthly rainfall total (area-weighted),mm/month
+climate_anomalies.csv,rain_clim,Climatological (2001-2025) mean of the calendar month: Rainfall,mm/month
+climate_anomalies.csv,rain_anom,Anomaly vs climatology: Rainfall,mm/month
+climate_anomalies.csv,rain_z,Standardised anomaly (z-score) of the calendar month: Rainfall,SD
+climate_anomalies.csv,rain_pct_anom,Rainfall anomaly as % of climatology,%
+climate_anomalies.csv,rain_rated,False in dry-season months (clim < 15 mm/month) where z-scores are unreliable,bool
+climate_anomalies.csv,t2m_category,"Temperature class from z: Extremely hot/cold (|z|>=2), Unusually hot/cold (|z|>=1.5), Normal",-
+climate_anomalies.csv,tmax_category,Same classes for T2M_MAX,-
+climate_anomalies.csv,tmin_category,Same classes for T2M_MIN,-
+climate_anomalies.csv,rain_category,"Rainfall class from z (Extremely/Unusually wet or dry, Normal)",-
+climate_anomalies.csv,t2m_anom_roll12,12-month rolling mean of T2M anomaly,°C
+climate_anomalies.csv,rain_anom_roll12,12-month rolling mean of rainfall anomaly,mm/month
+temperature_rainfall_correlations.csv,scope,Spatial scope of the statistic,-
+temperature_rainfall_correlations.csv,cell_id,Unique grid-cell id (latitude_longitude),-
+temperature_rainfall_correlations.csv,period,Annual or season name,-
+temperature_rainfall_correlations.csv,temperature_var,Temperature variable in the pair,-
+temperature_rainfall_correlations.csv,rainfall_var,Rainfall variable in the pair,-
+temperature_rainfall_correlations.csv,lag_months,Temperature leads rainfall by this many months,months
+temperature_rainfall_correlations.csv,n,Number of paired observations,-
+temperature_rainfall_correlations.csv,pearson_r,Pearson correlation coefficient,-1..1
+temperature_rainfall_correlations.csv,p_pearson,p-value of Pearson r,-
+temperature_rainfall_correlations.csv,spearman_rho,Spearman rank correlation,-1..1
+temperature_rainfall_correlations.csv,p_spearman,p-value of Spearman rho,-
+temperature_rainfall_correlations.csv,q_value_bh,Benjamini-Hochberg FDR-adjusted p-value,-
+temperature_rainfall_correlations.csv,significant_p05,p < 0.05,bool
+temperature_rainfall_correlations.csv,strength,Verbal strength of |r|,-
+temperature_rainfall_correlations.csv,direction,Sign of the relationship,-
+temperature_rainfall_correlations.csv,note,How the series were prepared,-
+country_trends.csv,scope,Spatial scope of the statistic,-
+country_trends.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+country_trends.csv,period,Annual or season name,-
+country_trends.csv,unit,Unit of the variable (rain = mm per year or season),-
+country_trends.csv,n_years,Number of years in the series,-
+country_trends.csv,mean,Mean of the series,variable unit
+country_trends.csv,sen_slope_per_decade,Sen's slope x 10 (robust trend per decade),unit/decade
+country_trends.csv,sen_ci_low_per_decade,Lower 95% CI of Sen's slope per decade,unit/decade
+country_trends.csv,sen_ci_high_per_decade,Upper 95% CI of Sen's slope per decade,unit/decade
+country_trends.csv,total_change_2001_2025,Sen slope x (last year - first year),unit
+country_trends.csv,ols_slope_per_decade,Linear-regression slope x 10,unit/decade
+country_trends.csv,r2,Coefficient of determination of the linear regression,0-1
+country_trends.csv,p_value_ols,Two-sided p-value of the OLS slope,-
+country_trends.csv,mk_tau,Kendall's tau of the Mann-Kendall test,-1..1
+country_trends.csv,mk_z,Mann-Kendall Z statistic,-
+country_trends.csv,p_value_mk,"Mann-Kendall p-value (two-sided, tie-corrected)",-
+country_trends.csv,lag1_autocorr,Lag-1 autocorrelation of detrended series,-1..1
+country_trends.csv,autocorr_significant,True if |lag-1 autocorrelation| exceeds the 95% white-noise bound,bool
+country_trends.csv,p_value_tfpw,Mann-Kendall p after TFPW pre-whitening (only if autocorrelation significant),-
+country_trends.csv,p_value_final,"p-value used for decisions (TFPW if autocorrelated, else Mann-Kendall)",-
+country_trends.csv,p_method,Which test produced p_value_final,-
+country_trends.csv,pettitt_p,Pettitt change-point test p-value,-
+country_trends.csv,pettitt_break_year,First year after the most likely change point,year
+country_trends.csv,pct_change_per_decade,Rainfall only: Sen slope per decade as % of mean,%/decade
+country_trends.csv,q_value_bh,Benjamini-Hochberg FDR-adjusted p-value,-
+country_trends.csv,significant_raw_p05,p_value_final < 0.05,bool
+country_trends.csv,significant_fdr_q05,q_value_bh < 0.05 (significance map flag),bool
+country_trends.csv,evidence,Verbal strength of evidence from p-value,-
+country_trends.csv,trend_reliability,Whether a significant trend looks gradual or step-like,-
+country_trends.csv,trend_direction,Sign of Sen's slope,-
+monthly_country_trends.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+monthly_country_trends.csv,month_name,Calendar month name,-
+monthly_country_trends.csv,unit,Unit of the variable (rain = mm per year or season),-
+monthly_country_trends.csv,n_years,Number of years in the series,-
+monthly_country_trends.csv,mean,Mean of the series,variable unit
+monthly_country_trends.csv,sen_slope_per_decade,Sen's slope x 10 (robust trend per decade),unit/decade
+monthly_country_trends.csv,sen_ci_low_per_decade,Lower 95% CI of Sen's slope per decade,unit/decade
+monthly_country_trends.csv,sen_ci_high_per_decade,Upper 95% CI of Sen's slope per decade,unit/decade
+monthly_country_trends.csv,total_change_2001_2025,Sen slope x (last year - first year),unit
+monthly_country_trends.csv,ols_slope_per_decade,Linear-regression slope x 10,unit/decade
+monthly_country_trends.csv,r2,Coefficient of determination of the linear regression,0-1
+monthly_country_trends.csv,p_value_ols,Two-sided p-value of the OLS slope,-
+monthly_country_trends.csv,mk_tau,Kendall's tau of the Mann-Kendall test,-1..1
+monthly_country_trends.csv,mk_z,Mann-Kendall Z statistic,-
+monthly_country_trends.csv,p_value_mk,"Mann-Kendall p-value (two-sided, tie-corrected)",-
+monthly_country_trends.csv,lag1_autocorr,Lag-1 autocorrelation of detrended series,-1..1
+monthly_country_trends.csv,autocorr_significant,True if |lag-1 autocorrelation| exceeds the 95% white-noise bound,bool
+monthly_country_trends.csv,p_value_tfpw,Mann-Kendall p after TFPW pre-whitening (only if autocorrelation significant),-
+monthly_country_trends.csv,p_value_final,"p-value used for decisions (TFPW if autocorrelated, else Mann-Kendall)",-
+monthly_country_trends.csv,p_method,Which test produced p_value_final,-
+monthly_country_trends.csv,pettitt_p,Pettitt change-point test p-value,-
+monthly_country_trends.csv,pettitt_break_year,First year after the most likely change point,year
+monthly_country_trends.csv,pct_change_per_decade,Rainfall only: Sen slope per decade as % of mean,%/decade
+monthly_country_trends.csv,month,Calendar month number,-
+monthly_country_trends.csv,q_value_bh,Benjamini-Hochberg FDR-adjusted p-value,-
+monthly_country_trends.csv,significant_fdr_q05,q_value_bh < 0.05 (significance map flag),bool
+decadal_comparison.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+decadal_comparison.csv,period,Annual or season name,-
+decadal_comparison.csv,unit,Unit of the variable (rain = mm per year or season),-
+decadal_comparison.csv,baseline_span,Baseline years,-
+decadal_comparison.csv,comparison_span,Comparison years,-
+decadal_comparison.csv,baseline_mean,Mean in baseline,unit
+decadal_comparison.csv,comparison_mean,Mean in comparison,unit
+decadal_comparison.csv,difference,comparison - baseline,unit
+decadal_comparison.csv,pct_difference,Rainfall only: difference as % of baseline,%
+decadal_comparison.csv,n_baseline,Years in baseline,-
+decadal_comparison.csv,n_comparison,Years in comparison,-
+decadal_comparison.csv,p_mannwhitney,Mann-Whitney U p-value,-
+decadal_comparison.csv,p_welch_t,Welch t-test p-value,-
+decadal_comparison.csv,significant_p05,p < 0.05,bool
+decadal_comparison.csv,q_value_bh,Benjamini-Hochberg FDR-adjusted p-value,-
+climate_extreme_events.csv,event_type,Hot/Cold/Wet/Dry spell (>=3 consecutive months with |z|>=1),-
+climate_extreme_events.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+climate_extreme_events.csv,start,First month of event,yyyy-mm
+climate_extreme_events.csv,end,Last month of event,yyyy-mm
+climate_extreme_events.csv,duration_months,Length of event,months
+climate_extreme_events.csv,mean_z,Mean z-score during the event,SD
+climate_extreme_events.csv,peak_z,z-score of the most extreme month,SD
+climate_extreme_events.csv,peak_month,Most extreme month,yyyy-mm
+climate_extreme_events.csv,mean_anomaly,Mean anomaly during the event,see anomaly_unit
+climate_extreme_events.csv,anomaly_unit,Unit of mean_anomaly,-
+homogeneity_check.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+homogeneity_check.csv,unit,Unit of the variable (rain = mm per year or season),-
+homogeneity_check.csv,last_year_before_break,Last year before the Pettitt change point,year
+homogeneity_check.csv,first_year_after_break,First year after the change point,year
+homogeneity_check.csv,mean_before,Mean before break,unit
+homogeneity_check.csv,mean_after,Mean after break,unit
+homogeneity_check.csv,ratio_after_over_before,mean_after / mean_before,-
+homogeneity_check.csv,difference,comparison - baseline,unit
+homogeneity_check.csv,pettitt_K,Pettitt test statistic,-
+homogeneity_check.csv,p_pettitt,Pettitt p-value,-
+homogeneity_check.csv,step_change_detected,p_pettitt < 0.05,bool
+robustness_trends.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+robustness_trends.csv,span,Sub-period analysed,-
+robustness_trends.csv,unit,Unit of the variable (rain = mm per year or season),-
+robustness_trends.csv,n_years,Number of years in the series,-
+robustness_trends.csv,mean,Mean of the series,variable unit
+robustness_trends.csv,sen_slope_per_decade,Sen's slope x 10 (robust trend per decade),unit/decade
+robustness_trends.csv,sen_ci_low_per_decade,Lower 95% CI of Sen's slope per decade,unit/decade
+robustness_trends.csv,sen_ci_high_per_decade,Upper 95% CI of Sen's slope per decade,unit/decade
+robustness_trends.csv,p_value_final,"p-value used for decisions (TFPW if autocorrelated, else Mann-Kendall)",-
+robustness_trends.csv,p_method,Which test produced p_value_final,-
+autocorrelation_check.csv,series,Series tested,-
+autocorrelation_check.csv,variable,"Analysed variable: t2m, tmax, tmin, dtr, rain",-
+autocorrelation_check.csv,lag,Lag,see unit_of_lag
+autocorrelation_check.csv,unit_of_lag,year or month,-
+autocorrelation_check.csv,n,Number of paired observations,-
+autocorrelation_check.csv,acf,Autocorrelation at that lag,-1..1
+autocorrelation_check.csv,bound_95pct,+/- 1.96/sqrt(n) white-noise bound,-
+autocorrelation_check.csv,significant,|acf| > bound,bool
+spatial_trend_map.csv,cell_id,Unique grid-cell id (latitude_longitude),-
+spatial_trend_map.csv,lat,Grid-cell centre latitude,degrees N
+spatial_trend_map.csv,lon,Grid-cell centre longitude,degrees E
+spatial_trend_map.csv,region,Nearest division (approximate grouping),-
+spatial_trend_map.csv,bd_overlap,Fraction of the grid cell that lies inside the Bangladesh outline,0-1
+spatial_trend_map.csv,t2m_mean,Annual mean: Mean temperature (T2M),unit
+spatial_trend_map.csv,t2m_sen_per_decade,Annual Sen's slope per decade: Mean temperature (T2M),unit/decade
+spatial_trend_map.csv,t2m_ci_low,Lower 95% CI of slope: Mean temperature (T2M),unit/decade
+spatial_trend_map.csv,t2m_ci_high,Upper 95% CI of slope: Mean temperature (T2M),unit/decade
+spatial_trend_map.csv,t2m_p_value,Final p-value: Mean temperature (T2M),-
+spatial_trend_map.csv,t2m_q_value,FDR q-value: Mean temperature (T2M),-
+spatial_trend_map.csv,t2m_significant_fdr,FDR-significant (q<0.05): Mean temperature (T2M),bool
+spatial_trend_map.csv,t2m_class,Trend class: Mean temperature (T2M),-
+spatial_trend_map.csv,tmax_mean,Annual mean: Maximum temperature (T2M_MAX),unit
+spatial_trend_map.csv,tmax_sen_per_decade,Annual Sen's slope per decade: Maximum temperature (T2M_MAX),unit/decade
+spatial_trend_map.csv,tmax_ci_low,Lower 95% CI of slope: Maximum temperature (T2M_MAX),unit/decade
+spatial_trend_map.csv,tmax_ci_high,Upper 95% CI of slope: Maximum temperature (T2M_MAX),unit/decade
+spatial_trend_map.csv,tmax_p_value,Final p-value: Maximum temperature (T2M_MAX),-
+spatial_trend_map.csv,tmax_q_value,FDR q-value: Maximum temperature (T2M_MAX),-
+spatial_trend_map.csv,tmax_significant_fdr,FDR-significant (q<0.05): Maximum temperature (T2M_MAX),bool
+spatial_trend_map.csv,tmax_class,Trend class: Maximum temperature (T2M_MAX),-
+spatial_trend_map.csv,tmin_mean,Annual mean: Minimum temperature (T2M_MIN),unit
+spatial_trend_map.csv,tmin_sen_per_decade,Annual Sen's slope per decade: Minimum temperature (T2M_MIN),unit/decade
+spatial_trend_map.csv,tmin_ci_low,Lower 95% CI of slope: Minimum temperature (T2M_MIN),unit/decade
+spatial_trend_map.csv,tmin_ci_high,Upper 95% CI of slope: Minimum temperature (T2M_MIN),unit/decade
+spatial_trend_map.csv,tmin_p_value,Final p-value: Minimum temperature (T2M_MIN),-
+spatial_trend_map.csv,tmin_q_value,FDR q-value: Minimum temperature (T2M_MIN),-
+spatial_trend_map.csv,tmin_significant_fdr,FDR-significant (q<0.05): Minimum temperature (T2M_MIN),bool
+spatial_trend_map.csv,tmin_class,Trend class: Minimum temperature (T2M_MIN),-
+spatial_trend_map.csv,dtr_mean,Annual mean: Diurnal temperature range (DTR),unit
+spatial_trend_map.csv,dtr_sen_per_decade,Annual Sen's slope per decade: Diurnal temperature range (DTR),unit/decade
+spatial_trend_map.csv,dtr_ci_low,Lower 95% CI of slope: Diurnal temperature range (DTR),unit/decade
+spatial_trend_map.csv,dtr_ci_high,Upper 95% CI of slope: Diurnal temperature range (DTR),unit/decade
+spatial_trend_map.csv,dtr_p_value,Final p-value: Diurnal temperature range (DTR),-
+spatial_trend_map.csv,dtr_q_value,FDR q-value: Diurnal temperature range (DTR),-
+spatial_trend_map.csv,dtr_significant_fdr,FDR-significant (q<0.05): Diurnal temperature range (DTR),bool
+spatial_trend_map.csv,dtr_class,Trend class: Diurnal temperature range (DTR),-
+spatial_trend_map.csv,rain_mean,Annual mean: Rainfall,unit
+spatial_trend_map.csv,rain_sen_per_decade,Annual Sen's slope per decade: Rainfall,unit/decade
+spatial_trend_map.csv,rain_ci_low,Lower 95% CI of slope: Rainfall,unit/decade
+spatial_trend_map.csv,rain_ci_high,Upper 95% CI of slope: Rainfall,unit/decade
+spatial_trend_map.csv,rain_p_value,Final p-value: Rainfall,-
+spatial_trend_map.csv,rain_q_value,FDR q-value: Rainfall,-
+spatial_trend_map.csv,rain_significant_fdr,FDR-significant (q<0.05): Rainfall,bool
+spatial_trend_map.csv,rain_class,Trend class: Rainfall,-
+spatial_trend_map.csv,rain_pct_per_decade,Annual rainfall Sen slope per decade as % of mean,%/decade
+monthly_climatology.csv,month,Calendar month number,-
+monthly_climatology.csv,t2m_mean,Annual mean: Mean temperature (T2M),unit
+monthly_climatology.csv,tmax_mean,Annual mean: Maximum temperature (T2M_MAX),unit
+monthly_climatology.csv,tmin_mean,Annual mean: Minimum temperature (T2M_MIN),unit
+monthly_climatology.csv,dtr_mean,Annual mean: Diurnal temperature range (DTR),unit
+monthly_climatology.csv,rain_mean,Annual mean: Rainfall,unit
+monthly_climatology.csv,t2m_std,Interannual SD of T2M,°C
+monthly_climatology.csv,rain_std,Interannual SD of monthly rainfall,mm/month
+monthly_climatology.csv,month_name,Calendar month name,-
+validation_report.csv,check,Validation check,-
+validation_report.csv,status,PASS / FIXED / WARN / INFO,-
+validation_report.csv,detail,Details,-

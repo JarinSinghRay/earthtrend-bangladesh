@@ -1,0 +1,16 @@
+variable,span,unit,n_years,mean,sen_slope_per_decade,sen_ci_low_per_decade,sen_ci_high_per_decade,p_value_final,p_method
+t2m,Full 2001-2025,°C,25,25.399,0.030031,-0.12634,0.18154,0.76142,Mann-Kendall
+t2m,Before break (2001-2014),°C,14,25.395,0.062072,-0.12634,0.46471,0.74256,Mann-Kendall
+t2m,After break (2015-2025),°C,11,25.404,-0.25131,-1.3533,0.89911,0.7555,Mann-Kendall
+tmax,Full 2001-2025,°C,25,33.25,-0.14941,-0.37986,0.17717,0.29327,Mann-Kendall
+tmax,Before break (2001-2014),°C,14,33.441,0.3145,-0.17569,0.82451,0.12531,Mann-Kendall
+tmax,After break (2015-2025),°C,11,33.008,-0.04909,-1.0376,1.8846,1,Mann-Kendall
+tmin,Full 2001-2025,°C,25,18.4,0.13925,-0.047813,0.29782,0.088211,Mann-Kendall
+tmin,Before break (2001-2014),°C,14,18.281,-0.081677,-0.41532,0.4673,0.91281,Mann-Kendall
+tmin,After break (2015-2025),°C,11,18.551,0.13706,-0.58068,0.79819,0.87627,Mann-Kendall
+dtr,Full 2001-2025,°C,25,14.85,-0.31259,-0.62957,-0.039978,0.029855,Mann-Kendall
+dtr,Before break (2001-2014),°C,14,15.16,0.33811,-0.38412,1.0484,0.15463,Mann-Kendall
+dtr,After break (2015-2025),°C,11,14.457,0.10684,-1.0637,1.2452,1,Mann-Kendall
+rain,Full 2001-2025,mm,25,2411.6,628.47,384.06,942.53,9.8486e-05,MK + TFPW pre-whitening
+rain,Before break (2001-2014),mm,14,1842.7,141.6,-184.5,386.95,0.38107,Mann-Kendall
+rain,After break (2015-2025),mm,11,3135.6,-470.1,-2161.7,1593.7,0.53342,Mann-Kendall

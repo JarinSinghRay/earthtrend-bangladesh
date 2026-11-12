@@ -1,0 +1,27 @@
+check,status,detail
+Datasets found,PASS,"T2M (POWER_T2M.csv), T2M_MAX (POWER_T2M_MAX.csv), T2M_MIN (POWER_T2M_MIN.csv), PRECTOTCORR (POWER_PRECTOTCORR.csv)"
+"T2M: duplicate (year, lat, lon) rows",PASS,0 duplicates found
+T2M: NASA fill value (-999),PASS,0 cells set to NaN
+T2M: missing values after parsing,PASS,0 missing monthly values out of 31200
+T2M: rows,INFO,2600 station-years (cells x years)
+"T2M_MAX: duplicate (year, lat, lon) rows",PASS,0 duplicates found
+T2M_MAX: NASA fill value (-999),PASS,0 cells set to NaN
+T2M_MAX: missing values after parsing,PASS,0 missing monthly values out of 31200
+T2M_MAX: rows,INFO,2600 station-years (cells x years)
+"T2M_MIN: duplicate (year, lat, lon) rows",PASS,0 duplicates found
+T2M_MIN: NASA fill value (-999),PASS,0 cells set to NaN
+T2M_MIN: missing values after parsing,PASS,0 missing monthly values out of 31200
+T2M_MIN: rows,INFO,2600 station-years (cells x years)
+"PRECTOTCORR: duplicate (year, lat, lon) rows",PASS,0 duplicates found
+PRECTOTCORR: NASA fill value (-999),PASS,0 cells set to NaN
+PRECTOTCORR: missing values after parsing,PASS,0 missing monthly values out of 31200
+PRECTOTCORR: rows,INFO,2600 station-years (cells x years)
+ANN column handling,INFO,ANN in T2M_MAX/T2M_MIN is the annual MAX/MIN of the monthly values (not a mean); ANN in T2M/PRECTOTCORR is the mean. ANN is therefore dropped and annual values are recomputed from the 12 monthly values.
+Merged table completeness,PASS,31200 rows = 104 grid cells x 25 years x 12 months (expected 31200)
+Time coverage,INFO,2001-2025
+Gap filling,PASS,No gaps - nothing imputed
+Temperature in physical range (-30..60 °C),PASS,0 implausible values
+Rainfall in physical range (0..150 mm/day),PASS,0 implausible values
+Ordering T2M_MIN <= T2M <= T2M_MAX,PASS,0 violating rows
+Derived variables,PASS,DTR = T2M_MAX - T2M_MIN; monthly rainfall (mm/month) = mm/day x days in month (leap-year aware)
+Bangladesh grid mask,PASS,54 of 104 grid cells overlap Bangladesh by >= 20% of cell area; the rest (India/Myanmar/Bay of Bengal) are kept in the master but excluded from analysis
