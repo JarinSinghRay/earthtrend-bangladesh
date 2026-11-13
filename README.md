@@ -734,7 +734,7 @@ Our presentation videos introduce the problem, explain our solution, demonstrate
 
 **Duration:** 4 Minutes (240 Seconds)
 
-**YouTube Link:** [INSERT 240-SECOND PRESENTATION LINK]
+**YouTube Link:** https://www.youtube.com/watch?v=QPh1IDDHnNI
 
 ### 30-Second Final Video
 
